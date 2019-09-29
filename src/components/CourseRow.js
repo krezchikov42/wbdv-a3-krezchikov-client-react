@@ -1,10 +1,9 @@
 import React from 'react'
 
-const CourseRow = ({title, seats}) =>
-    <tr>
-        <td>
-            {title}, {seats}
-        </td>
-    </tr>
+class CourseRow extends React.Component {
 
-export default CourseRow
+    render() {
+        return null;
+    }
+
+}
