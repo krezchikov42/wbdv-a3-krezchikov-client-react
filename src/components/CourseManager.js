@@ -6,33 +6,38 @@ import Col from "react-bootstrap/Col";
 import Navbar from "react-bootstrap/Navbar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import FormControl from 'react-bootstrap/FormControl'
-
+import FormControl from "react-bootstrap/FormControl";
+import CourseTable from "./CourseTable";
+import CourseService from "../services/CourseService";
+import CourseHeader from "./CourseHeader"
 
 export default class CourseManger extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+        'course_many': []
+      }
+  }
+
+  componentDidMount() {
+    let course_service = CourseService.getInstance();
+    let course_many = course_service.findAllCourses();
+    this.setState({'course_many': course_many})
+
+  }
+
   render() {
     return (
       <Container>
         <Row>
           <Col>
-            <Navbar bg="dark" expand="md" variant="dark">
-              <Navbar.Brand>
-                <span
-                  class="glyphicon glyphicon-th-list text-white"
-                  aria-hidden="true"
-                ></span>
-              </Navbar.Brand>
-              <Navbar.Text> Course Manager</Navbar.Text>
-              <Form inline>
-                <FormControl
-                  type="text"
-                  placeholder="Search"
-                  className="mr-sm-2"
-                />
-              </Form>
-              <Button />
-            </Navbar>
+            <CourseHeader />
           </Col>
+        </Row>
+        <Row>
+          <CourseTable 
+            course_many = {this.state.course_many}/>
         </Row>
       </Container>
     );
