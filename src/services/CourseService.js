@@ -29,13 +29,13 @@ export default class CourseService {
 
     //retrieves a course instance that matches the id parameter
     findCourseById(id) {
-        found_course = this.courses.find(course => id == course.id);
+        let found_course = this.courses.find(course => id == course.id);
         return found_course
     }
 
     // updates the course instance whose id matches the id parameter.Updates the instance with values in course parameter
     updateCourse(id, course) {
-        found_course_index = this.courses.indIndex(course => id == course.id);
+        let found_course_index = this.courses.indIndex(course => id == course.id);
         this.courses[found_course_index] = course;
     }
 
