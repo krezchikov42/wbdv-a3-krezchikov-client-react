@@ -16,7 +16,6 @@ export default class CourseManger extends React.Component {
     let course_service = CourseService.getInstance();
     let course_many = course_service.findAllCourses();
     this.setState({ course_many: course_many });
-
   }
 
   render() {
@@ -24,17 +23,26 @@ export default class CourseManger extends React.Component {
       <div className="container-fluid">
         <div className="row bg-dark">
           <div className="col">
-            <CourseHeader />
+            <CourseHeader 
+            renderCourses={this.renderCourses}
+            />
           </div>
         </div>
         <div className="row">
           <div className="col-1" />
           <div className="col-10">
-            <CourseTable course_many={this.state.course_many} />
+            <CourseTable course_many={this.state.course_many} renderCourses={this.renderCourses}/>
           </div>
           <div className="col-1" />
         </div>
       </div>
     );
   }
+
+  renderCourses = () => {
+    let course_service = CourseService.getInstance();
+    let course_many = course_service.findAllCourses();
+    this.setState({ course_many: course_many });
+  }
+
 }
