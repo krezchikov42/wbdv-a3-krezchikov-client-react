@@ -1,9 +1,14 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
-const CourseRow = ({title, seats}) =>
+const CourseRow = ({course, title, seats}) =>
     <tr>
         <td>
-            {title}, {seats}
+            {course &&
+            <Link to={`/editor/${course.id}`}>
+                {course.title}, {seats}
+            </Link>
+            }
         </td>
     </tr>
 

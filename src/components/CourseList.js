@@ -1,13 +1,18 @@
 import React from 'react'
 import CourseRow from "./CourseRow";
+import CourseService from '../services/CourseService'
 
-const courses = [
-    {title: 'Course 1', seats: 123, id: 1},
-    {title: 'Course 2', seats: 234, id: 2},
-    {title: 'Course 3', seats: 345, id: 3},
-    {title: 'Course 4', seats: 456, id: 4},
-    {title: 'Course 5', seats: 567, id: 5},
-]
+let courseService = CourseService.getInstance()
+
+const courses = courseService.findAllCourses()
+
+//     [
+//     {title: 'Course 1', seats: 123, id: 1},
+//     {title: 'Course 2', seats: 234, id: 2},
+//     {title: 'Course 3', seats: 345, id: 3},
+//     {title: 'Course 4', seats: 456, id: 4},
+//     {title: 'Course 5', seats: 567, id: 5},
+// ]
 
 const CourseList = () =>
     <div>
@@ -25,6 +30,7 @@ const CourseList = () =>
                     courses.map(course =>
                         <CourseRow
                             key={course.id}
+                            course={course}
                             title={course.title}
                             seats={course.seats}/>
                     )

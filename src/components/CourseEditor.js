@@ -1,6 +1,7 @@
 import React from 'react'
 import ModuleList from "./ModuleList";
 import LessonTabs from "./LessonTabs";
+import ModuleListContainer from "./ModuleListContainer";
 
 const course = {
     title: 'Course 123',
@@ -19,12 +20,13 @@ const course = {
     ]
 }
 
-const CourseEditor = () =>
+const CourseEditor = ({match}) =>
     <div>
-        <h2>Course Editor</h2>
+        <h2>Course Editor {match.params.courseId}</h2>
         <div className="row">
             <div className="col-3">
-                <ModuleList course={course}/>
+                <ModuleListContainer/>
+                {/*<ModuleList course={course}/>*/}
             </div>
             <div className="col-9">
                 <LessonTabs lessons={course.modules[0].lessons}/>
