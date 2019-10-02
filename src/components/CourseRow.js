@@ -2,7 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 export default class CourseRow extends React.Component {
+
   render() {
+    let course = this.props.course
     return (
       <tr>
         <td>
@@ -14,7 +16,7 @@ export default class CourseRow extends React.Component {
             class="wbdv-row wbdv-title"
             href="../course_editor/course_editor.template.client.html"
           >
-            Thinking of Funny Class Names and Many Suprises
+            {course.title}
           </a>
         </td>
         <td class="wbdv-row wbdv-owner">me</td>
