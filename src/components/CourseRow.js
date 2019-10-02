@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import CourseService from "../services/CourseService";
 
 export default class CourseRow extends React.Component {
-
   render() {
-    let course = this.props.course
+    let course = this.props.course;
     return (
       <tr>
         <td>
@@ -26,16 +26,22 @@ export default class CourseRow extends React.Component {
             type="button"
             className="btn btn-outline-light wbdv-row wbdv-button wbdv-delete"
             aria-label="Remove Course"
+            onClick={this.removeClass}
           >
-            <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <span
+              className="glyphicon glyphicon-remove"
+              aria-hidden="true"
+            ></span>
           </button>
         </td>
       </tr>
     );
   }
+
+  removeClass = e => {
+    let course_service = CourseService.getInstance();
+    let course = this.props.course;
+    course_service.deleteCourse(course.id);
+    this.props.renderCourses();
+  };
 }
-
-// CourseRow.PropTypes = {
-//     course_name: PropTypes.string,
-
-// }
