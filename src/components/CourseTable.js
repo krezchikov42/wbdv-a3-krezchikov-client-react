@@ -7,7 +7,10 @@ import PropTypes from 'prop-types';
 export default class CourseTable extends React.Component {
 
     render() { 
-        let list_rows = this.props.course_many.map(course_one => <CourseRow course={course_one} key={course_one.id}/>)
+        let list_rows = this.props.course_many.map(course_one => 
+            <CourseRow  course={course_one}
+                        key={course_one.id}
+                        renderCourses={this.props.renderCourses}/>)
         return (<table className="table table-primary table-hover">
                 <thead className="bg-light">
                     <tr className=" d-none d-sm-table-row">
