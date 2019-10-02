@@ -9,25 +9,25 @@ export default class CourseRow extends React.Component {
       <tr>
         <td>
           <span
-            class="glyphicon glyphicon-book wbdv-row wbdv-icon"
+            className="glyphicon glyphicon-book wbdv-row wbdv-icon"
             aria-hidden="true"
           />
           <a
-            class="wbdv-row wbdv-title"
+            className="wbdv-row wbdv-title"
             href="../course_editor/course_editor.template.client.html"
           >
             {course.title}
           </a>
         </td>
-        <td class="wbdv-row wbdv-owner">me</td>
-        <td class="wbdv-row wbdv-modified-date">20:10 pm</td>
+        <td className="wbdv-row wbdv-owner">me</td>
+        <td className="wbdv-row wbdv-modified-date">20:10 pm</td>
         <td>
           <button
             type="button"
-            class="btn btn-outline-light wbdv-row wbdv-button wbdv-delete"
+            className="btn btn-outline-light wbdv-row wbdv-button wbdv-delete"
             aria-label="Remove Course"
           >
-            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+            <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
           </button>
         </td>
       </tr>
