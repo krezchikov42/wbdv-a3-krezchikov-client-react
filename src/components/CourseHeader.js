@@ -1,7 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
+import CourseService from "../services/CourseService"
 
 export default class CourseHeader extends React.Component {
+
+    constructor(props){
+        super(props)
+        this.state = {
+            'title_text': ''
+        }
+    }
+
   render() {
     return (
       <nav className="navbar navbar-dark navbar-expand-md bg-dark">
@@ -18,14 +27,14 @@ export default class CourseHeader extends React.Component {
         <form className="form-inline">
           <input
             className="form-control pr-5 mx-2  wbdv-field wbdv-new-course"
-            placeholder="New Course Title"
-            aria-label="Search"
+            value={this.state.title_text} onChange={this.handle_title_change}
+            placeholder='New Course Name'
           />
         </form>
         <button
           type="button"
           className="btn btn-default bg-success wbdv-button wbdv-add-course"
-          aria-label="Left Align"
+          onClick={this.add_course}
         >
           <span
             className="glyphicon glyphicon-plus text-white "
@@ -34,6 +43,22 @@ export default class CourseHeader extends React.Component {
         </button>
       </nav>
     );
+  }
+
+  handle_title_change =  (event) => {
+    this.setState({title_text: event.target.value});
+  }
+
+  add_course =  (e) => {
+      console.log(this)
+    let course_service = CourseService.getInstance();
+    let course = {
+        "title": this.state.title_text,
+        "modules": []
+    }
+    course_service.createCourse(course)
+    this.setState({'title_text': ''})
+    this.props.renderCourses()
   }
 }
 
