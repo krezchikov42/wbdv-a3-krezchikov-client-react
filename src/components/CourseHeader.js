@@ -4,73 +4,34 @@ import PropTypes from "prop-types";
 export default class CourseHeader extends React.Component {
   render() {
     return (
-      <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
-        <a className="navbar-brand wbdv-course-editor wbdv-close" href="#">
+      <nav className="navbar navbar-dark navbar-expand-md bg-dark">
+        <a className="navbar-brand wbdv-field wbdv-hamburger">
           <span
-            className="glyphicon glyphicon-remove-circle text-white"
+            className="glyphicon glyphicon-th-list text-white"
             aria-hidden="true"
-          ></span>
+          />
         </a>
-        <span className="navbar-text text-white wbdv-course-title">Web Dev</span>
+        <span className="navbar-text text-white wbdv-label wbdv-course-manager">
+          {" "}
+          Course Manager
+        </span>
+        <form className="form-inline">
+          <input
+            className="form-control pr-5 mx-2  wbdv-field wbdv-new-course"
+            placeholder="New Course Title"
+            aria-label="Search"
+          />
+        </form>
         <button
-          className="navbar-toggler"
           type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+          className="btn btn-default bg-success wbdv-button wbdv-add-course"
+          aria-label="Left Align"
         >
-          <span className="navbar-toggler-icon"></span>
+          <span
+            className="glyphicon glyphicon-plus text-white "
+            aria-hidden="true"
+          />
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul className="navbar-nav">
-            <li className="nav-item mx-4">
-              <a className="btn btn-outline-light btn-block btn-lg" href="#">
-                Build
-              </a>
-            </li>
-            <li className="nav-item mx-4">
-              <a
-                className="btn btn-outline-light btn-block btn-lg wbdv-page-tab active"
-                href="#"
-              >
-                Pages
-              </a>
-            </li>
-            <li className="nav-item mx-4">
-              <a className="btn btn-outline-light btn-block btn-lg" href="#">
-                Theme
-              </a>
-            </li>
-            <li className="nav-item mx-4">
-              <a className="btn btn-outline-light btn-block btn-lg" href="#">
-                Store
-              </a>
-            </li>
-            <li className="nav-item mx-4">
-              <a className="btn btn-outline-light btn-block btn-lg" href="#">
-                Apps
-              </a>
-            </li>
-            <li className="nav-item mx-4">
-              <a className="btn btn-outline-light btn-block btn-lg" href="#">
-                Settings
-              </a>
-            </li>
-            <li className="nav-item mx-4">
-              <a
-                className="btn btn-outline-light btn-block btn-lg wbdv-new-page-btn"
-                href="#"
-              >
-                <span
-                  className="glyphicon glyphicon-plus text-white"
-                  aria-hidden="true"
-                ></span>
-              </a>
-            </li>
-          </ul>
-        </div>
       </nav>
     );
   }
