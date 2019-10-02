@@ -1,6 +1,7 @@
 export default class CourseService {
 
     static myInstance = null;
+    static id = 0;
 
 
 
@@ -19,6 +20,8 @@ export default class CourseService {
 
     //creates a new course instance and adds it to the collection of courses
     createCourse(course) {
+        course['id'] = CourseService.id
+        CourseService.id += 1
         this.courses.push(course)
     }
 
