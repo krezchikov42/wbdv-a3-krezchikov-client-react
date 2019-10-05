@@ -1,6 +1,7 @@
 import React from 'react'
 import CourseRow from './CourseRow';
 import PropTypes from 'prop-types';
+import ChangeCourseStyleGroup from './ChangeCourseStyleGroup'
 
 
 
@@ -18,15 +19,7 @@ export default class CourseTable extends React.Component {
                         <th>Owner</th>
                         <th>Last Modified</th>
                         <th>
-                            <button type="button" className="btn btn-default wbdv-button wbdv-grid-layout" aria-label="Left Align">
-                                        <span className="glyphicon glyphicon-th" aria-hidden="true"></span>
-                                    </button>
-                            <button type="button" className="btn btn-default wbdv-button wbdv-list-layout" aria-label="Left Align">
-                                            <span className="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-                                        </button>
-                            <button type="button" className="btn btn-default wbdv-header wbdv-sort" aria-label="Left Align">
-                                            <span className="glyphicon glyphicon-font" aria-hidden="true"></span>
-                                    </button>
+                          <ChangeCourseStyleGroup />
                         </th>
                     </tr>
                 </thead>
