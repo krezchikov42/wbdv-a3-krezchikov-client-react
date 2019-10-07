@@ -24,20 +24,35 @@ const course_ex = {
 class CourseEditor extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { 'course': course_ex };
+    this.state = {
+      course: course_ex,
+      selected_module_index: 0
+    };
   }
 
   render() {
+    let have_selected_module = this.state.course.modules.length !== 0;
+    let lessonTabs = null;
+    if (have_selected_module) {
+      let course = this.state.course;
+      let lessons = course.modules[this.state.selected_module_index].lessons;
+      lessonTabs = (
+        <LessonTabs
+          have_selected_module={have_selected_module}
+          lessons={lessons}
+        />
+      );
+    }
+
     return (
       <div>
         <h2>Course Editor {this.state.course.title}</h2>
         <div className="row">
           <div className="col-3">
-            <ModuleListContainer />
-            {/*<ModuleList course={course}/>*/}
+            <ModuleListContainer module_many={this.state.course.modules} />
           </div>
           <div className="col-9">
-            <LessonTabs lessons={this.state.course.modules[0].lessons} />
+              {lessonTabs}
           </div>
         </div>
       </div>
