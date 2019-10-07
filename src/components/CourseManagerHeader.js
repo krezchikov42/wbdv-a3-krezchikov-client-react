@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import CourseService from "../services/CourseService"
+import CourseService from "../services/CourseService";
 
 export default class CourseHeader extends React.Component {
 
