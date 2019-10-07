@@ -1,6 +1,6 @@
 import React from "react";
 import CourseCard from "../CourseCard";
-import CourseGridHeader from "./CourseGridHeader"
+import CourseGridHeader from "./CourseGridHeader";
 import "./CourseGridStyle.css";
 
 export default class CourseGrid extends React.Component {
@@ -14,7 +14,7 @@ export default class CourseGrid extends React.Component {
     ));
     return (
       <div>
-        <CourseGridHeader />
+        <CourseGridHeader setCourseStyle={this.props.setCourseStyle} />
         <div className="card-columns">{course_card_many}</div>
       </div>
     );

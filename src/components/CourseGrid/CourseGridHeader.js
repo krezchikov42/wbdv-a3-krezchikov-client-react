@@ -11,7 +11,7 @@ export default class CourseGridHeader extends React.Component {
               <th>Recent Documents</th>
               <th>Owned by me</th>
               <th>
-                <ChangeCourseStyleGroup />
+                <ChangeCourseStyleGroup setCourseStyle={this.props.setCourseStyle}/>
               </th>
             </tr>
           </thead>

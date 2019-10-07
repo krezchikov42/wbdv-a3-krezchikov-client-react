@@ -8,6 +8,7 @@ export default class CourseHeader extends React.Component {
           type="button"
           className="btn btn-default wbdv-button wbdv-grid-layout"
           aria-label="Grid Layout"
+          onClick={ () => this.props.setCourseStyle("grid")}
         >
           <span className="glyphicon glyphicon-th" aria-hidden="true"></span>
         </button>
@@ -15,6 +16,7 @@ export default class CourseHeader extends React.Component {
           type="button"
           className="btn btn-default wbdv-button wbdv-list-layout"
           aria-label="List Layout"
+          onClick={ () => this.props.setCourseStyle("table")}
         >
           <span
             className="glyphicon glyphicon-th-list"
@@ -31,4 +33,5 @@ export default class CourseHeader extends React.Component {
       </div>
     );
   }
+
 }

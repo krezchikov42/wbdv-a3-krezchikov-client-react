@@ -19,7 +19,7 @@ export default class CourseTable extends React.Component {
                         <th>Owner</th>
                         <th>Last Modified</th>
                         <th>
-                          <ChangeCourseStyleGroup />
+                          <ChangeCourseStyleGroup setCourseStyle={this.props.setCourseStyle}/>
                         </th>
                     </tr>
                 </thead>

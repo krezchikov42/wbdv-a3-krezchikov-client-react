@@ -11,7 +11,7 @@ export default class CourseManger extends React.Component {
     super(props);
     this.state = {
       course_many: [],
-      course_style: 'table'
+      course_style: "table"
     };
   }
 
@@ -26,7 +26,8 @@ export default class CourseManger extends React.Component {
       <div className="container">
         <div className="row bg-dark">
           <div className="col">
-            <CourseManagerHeader renderCourses={this.renderCourses}  />
+            <CourseManagerHeader 
+                  renderCourses={this.renderCourses}/>
           </div>
         </div>
         <div className="row">
@@ -51,7 +52,7 @@ export default class CourseManger extends React.Component {
     this.setState({ course_many: course_many });
   };
 
-  setCourseStyle = (course_style) => {
-    this.setState({'course_style': course_style})
-  }
+  setCourseStyle = course_style => {
+    this.setState({ course_style: course_style });
+  };
 }
