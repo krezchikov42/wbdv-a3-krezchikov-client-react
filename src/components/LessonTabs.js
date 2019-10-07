@@ -1,18 +1,22 @@
-import React from 'react'
+import React from "react";
 
-const LessonTabs = ({lessons}) =>
-    <div>
+export default class LessonTabs extends React.Component {
+  render() {
+    return (
+      <div>
         <ul className="nav nav-tabs">
-            {
-                lessons.map(lesson =>
-                    <li key={lesson.id} className="nav-item">
-                        <a className={lesson.selected ? 'nav-link active' :  'nav-link'} href="#">
-                            {lesson.title}
-                        </a>
-                    </li>
-                )
-            }
+          {this.props.lessons.map(lesson => (
+            <li key={lesson.id} className="nav-item">
+              <a
+                className={lesson.selected ? "nav-link active" : "nav-link"}
+                href="#"
+              >
+                {lesson.title}
+              </a>
+            </li>
+          ))}
         </ul>
-    </div>
-
-export default LessonTabs
+      </div>
+    );
+  }
+}
