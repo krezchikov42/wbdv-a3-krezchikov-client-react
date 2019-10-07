@@ -1,5 +1,5 @@
 import React from "react";
-import CourseService from "../services/CourseService"
+import CourseService from "../services/CourseService";
 
 export default class CourseCard extends React.Component {
   render() {
