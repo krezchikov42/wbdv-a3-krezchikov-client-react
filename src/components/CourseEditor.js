@@ -1,7 +1,6 @@
 import React from "react";
-import ModuleList from "./ModuleList";
 import LessonTabs from "./LessonTabs";
-import ModuleListContainer from "./ModuleListContainer";
+import ModuleListContainer from "./modules/ModuleListContainer";
 
 const course_ex = {
   title: "Course 123",

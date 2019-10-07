@@ -1,6 +1,6 @@
 import React from "react";
 import ModuleListItem from "./ModuleListItem";
-import ModuleManyService from "../services/ModuleManyService";
+import ModuleManyService from "../../services/ModuleManyService";
 
 export default class ModuleListContainer extends React.Component {
   constructor(props) {
