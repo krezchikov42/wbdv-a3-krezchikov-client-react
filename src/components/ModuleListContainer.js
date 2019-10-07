@@ -1,74 +1,50 @@
-import React from 'react'
+import React from "react";
 import ModuleListItem from "./ModuleListItem";
+import ModuleManyService from "../services/ModuleManyService";
 
-export default class ModuleListContainer
-    extends React.Component {
-    constructor(props) {
-        super(props)
-        // this.titleChanged = this.titleChanged.bind(this)
-        // this.createModule = this.createModule.bind(this)
-        this.state = {
-            newModule: {
-                title: ''
-            },
-            modules: [
-                {
-                    title: 'Module 1', id: 123,
-                    lessons: [
-                        {title: 'Lesson 1.1', id: 123, selected: true},
-                        {title: 'Lesson 1.2', id: 234},
-                        {title: 'Lesson 1.3', id: 345},
-                        {title: 'Lesson 1.4', id: 456},
-                    ]
-                },
-                {title: 'Module 2', id: 234},
-                {title: 'Module 3', id: 345},
-            ]
-        }
-    }
+export default class ModuleListContainer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { module_many: this.props.module_many, title: "" };
+    this.module_service = new ModuleManyService(this.state.module_many);
+  }
 
-    titleChanged = (event) => {
-        // this.state.newModule.title = event.currentTarget.value
-        this.setState({
-            newModule: {
-                title: event.currentTarget.value,
-                id: (new Date()).getTime()
-            }
-        })
-    }
+  titleChanged = event => {
+    this.setState({
+      title: event.currentTarget.value
+    });
+  };
 
-    createModule = () => {
-        this.setState(prevState => ({
-            newModule: {
-                title: ''
-            },
-            modules: [
-                ... prevState.modules,
-                prevState.newModule
-            ]
-        }))
-    }
+  createModule = () => {
+    let module_title = this.state.title;
+    this.module_service.createModule(module_title);
+    let new_modules = this.module_service.getModules();
+    this.setState({module_many: new_modules, title: ''})
+  };
 
-    render() {
-        return(
-            <div>
-                <ul className="list-group">
-                    <li className="list-group-item">
-                        <input
-                            value={this.state.newModule.title}
-                            onChange={this.titleChanged}
-                            placeholder="Module title" className="form-control"/>
-                        <button onClick={this.createModule} className="btn btn-primary btn-block">Create</button>
-                    </li>
-                    {
-                        this.state.modules.map(module =>
-                            <ModuleListItem
-                                key={module.id}
-                                module={module}/>
-                        )
-                    }
-                </ul>
-            </div>
-        )
-    }
+  render() {
+    return (
+      <div>
+        <ul className="list-group">
+          <li className="list-group-item">
+            <input
+              value={this.state.title}
+              onChange={this.titleChanged}
+              placeholder="Module title"
+              className="form-control"
+            />
+            <button
+              onClick={this.createModule}
+              className="btn btn-primary btn-block"
+            >
+              Create
+            </button>
+          </li>
+          {this.state.module_many.map(module => (
+            <ModuleListItem key={module.id} module={module} />
+          ))}
+        </ul>
+      </div>
+    );
+  }
 }
