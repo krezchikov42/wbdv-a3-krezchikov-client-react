@@ -21,6 +21,7 @@ export default class ModuleListItem extends React.Component {
             type="button"
             className="btn btn-primary wbdv-row wbdv-button wbdv-deletemx-2"
             aria-label="Remove Course"
+            onClick={() => this.props.deleteModule(this.props.module.title)}
           >
             <span
               className="glyphicon glyphicon-remove"

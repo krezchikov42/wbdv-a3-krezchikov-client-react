@@ -18,16 +18,23 @@ export default class ModuleListContainer extends React.Component {
   createModule = () => {
     let module_title = this.state.title;
     this.module_service.createModule(module_title);
-    let new_modules = this.module_service.getModules();
-    this.setState({module_many: new_modules, title: ''})
+    this.refreshModules();
   };
 
-  updateModule = (original_module) => {
-    console.log(original_module)
-    this.module_service.updateModule(original_module,this.state.title)
+  updateModule = original_module => {
+    this.module_service.updateModule(original_module, this.state.title);
+    this.refreshModules();
+  };
+
+  deleteModule = module_to_delete => {
+    this.module_service.deleteModule(module_to_delete);
+    this.refreshModules();
+  };
+
+  refreshModules = () => {
     let new_modules = this.module_service.getModules();
-    this.setState({module_many: new_modules, title: ''})
-  }
+    this.setState({ module_many: new_modules, title: "" });
+  };
 
   render() {
     return (
@@ -48,7 +55,12 @@ export default class ModuleListContainer extends React.Component {
             </button>
           </li>
           {this.state.module_many.map(module => (
-            <ModuleListItem key={module.id} module={module} updateModule={this.updateModule}/>
+            <ModuleListItem
+              key={module.id}
+              module={module}
+              updateModule={this.updateModule}
+              deleteModule={this.deleteModule}
+            />
           ))}
         </ul>
       </div>
