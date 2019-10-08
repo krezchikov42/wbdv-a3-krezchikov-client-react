@@ -12,7 +12,7 @@ class CourseEditor extends React.Component {
     let course = course_service.findCourseById(course_id)
     this.state = {
       course: course,
-      selected_module_index: 0
+      selected_module_index: 0,
       selected_lesson_index: 0,
     };
   }
