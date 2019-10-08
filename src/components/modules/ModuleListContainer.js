@@ -21,13 +21,13 @@ export default class ModuleListContainer extends React.Component {
     this.refreshModules();
   };
 
-  updateModule = original_module => {
-    this.module_service.updateModule(original_module, this.state.title);
+  updateModule = mod_id => {
+    this.module_service.updateModule(mod_id, this.state.title);
     this.refreshModules();
   };
 
-  deleteModule = module_to_delete => {
-    this.module_service.deleteModule(module_to_delete);
+  deleteModule = mod_id => {
+    this.module_service.deleteModule(mod_id);
     this.refreshModules();
   };
 

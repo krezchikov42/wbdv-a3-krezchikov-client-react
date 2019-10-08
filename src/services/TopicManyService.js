@@ -17,12 +17,12 @@ export default class TopicManyService {
         this.id += 1
     }
 
-    deleteTopic(topic_title) {
-        this.topic_many =  this.topic_many.filter(topic => topic.title !== topic_title);
+    deleteTopic(topic_id) {
+        this.topic_many =  this.topic_many.filter(topic => topic.id !== topic_id);
     }
 
-    updateTopic(org_topic_title, new_topic_title) {
-        let found_topic_index = this.topic_many.findIndex(topic => topic.title === org_topic_title);
+    updateTopic(topic_id, new_topic_title) {
+        let found_topic_index = this.topic_many.findIndex(topic => topic.id === topic_id);
         this.topic_many[found_topic_index].title = new_topic_title;
     }
 

@@ -8,8 +8,8 @@ export default class TopicListItem extends React.Component {
       <li className="list-group-item">
         {this.props.topic.title}
         <div className="float-right">
-          <EditButton update={this.props.updateTopic} title={this.props.topic.title} />
-          <DeleteButton delete={this.props.deleteTopic} title={this.props.topic.title} />
+          <EditButton update={this.props.updateTopic} item={this.props.topic} />
+          <DeleteButton delete={this.props.deleteTopic} item={this.props.topic} />
         </div>
       </li>
     );

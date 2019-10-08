@@ -17,12 +17,12 @@ export default class LessonManyService {
         this.id += 1
     }
 
-    deleteLesson(lesson_title) {
-        this.lesson_many =  this.lesson_many.filter(lesson => lesson.title !== lesson_title);
+    deleteLesson(lesson_id) {
+        this.lesson_many =  this.lesson_many.filter(lesson => lesson.id !== lesson_id);
     }
 
-    updateLesson(org_lesson_title, new_lesson_title) {
-        let found_lesson_index = this.lesson_many.findIndex(lesson => lesson.title === org_lesson_title);
+    updateLesson(lesson_id, new_lesson_title) {
+        let found_lesson_index = this.lesson_many.findIndex(lesson => lesson.id === lesson_id);
         this.lesson_many[found_lesson_index].title = new_lesson_title;
     }
 

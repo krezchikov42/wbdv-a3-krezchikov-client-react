@@ -16,8 +16,8 @@ export default class LessonTabs extends React.Component {
                 data-toggle="tab"
               >
                 {lesson.title}
-                <EditButton update={this.props.updateLesson} title={lesson.title} />
-                <DeleteButton delete={this.props.deleteLesson} title={lesson.title} />
+                <EditButton update={this.props.updateLesson} item={lesson} />
+                <DeleteButton delete={this.props.deleteLesson} item={lesson} />
               </a>
             </li>
           ))}

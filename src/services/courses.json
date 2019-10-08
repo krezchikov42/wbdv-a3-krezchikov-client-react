@@ -3,10 +3,12 @@
         "title": "CS5610",
         "modules": [{
                 "title": "Week 1",
+                "id": 21938902803912,
                 "lessons": [{
                         "title": "HTML",
                         "topics": [{
                                 "title": "DOM",
+                                "id": 213123,
                                 "widgets": [{
                                         "type": "HEADING",
                                         "size": 1,
@@ -33,22 +35,26 @@
                             },
                             {
                                 "title": "Tags",
-                                "widgets": []
+                                "widgets": [],
+                                "id": 36734
                             },
                             {
                                 "title": "Attributes",
-                                "widgets": []
+                                "widgets": [],
+                                "id": 345896
                             }
                         ]
                     },
                     {
                         "title": "CSS",
+                        "id": 901283123,
                         "topics": []
                     }
                 ]
             },
             {
                 "title": "Week 2",
+                "id": 21991283098,
                 "lessons": []
             }
         ]

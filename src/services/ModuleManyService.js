@@ -17,12 +17,12 @@ export default class ModuleManyService {
         this.id += 1
     }
 
-    deleteModule(module_title) {
-        this.module_many =  this.module_many.filter(module => module.title !== module_title);
+    deleteModule(module_id) {
+        this.module_many =  this.module_many.filter(module => module.id !== module_id);
     }
 
-    updateModule(org_module_title, new_module_title) {
-        let found_module_index = this.module_many.findIndex(module => module.title === org_module_title);
+    updateModule(module_id, new_module_title) {
+        let found_module_index = this.module_many.findIndex(module => module.id === module_id);
         this.module_many[found_module_index].title = new_module_title;
     }
 

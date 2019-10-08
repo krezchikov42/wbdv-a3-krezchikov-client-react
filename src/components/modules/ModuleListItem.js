@@ -1,4 +1,6 @@
 import React from "react";
+import EditButton from '../buttons/EditButton'
+import DeleteButton from '../buttons/DeleteButton'
 
 export default class ModuleListItem extends React.Component {
   render() {
@@ -6,28 +8,8 @@ export default class ModuleListItem extends React.Component {
       <li className="list-group-item">
         {this.props.module.title}
         <div className="float-right">
-          <button
-            type="button"
-            className="btn btn-primary wbdv-row wbdv-button wbdv-edit mx-2"
-            aria-label="Remove Course"
-            onClick={() => this.props.updateModule(this.props.module.title)}
-          >
-            <span
-              className="glyphicon glyphicon-pencil"
-              aria-hidden="true"
-            ></span>
-          </button>
-          <button
-            type="button"
-            className="btn btn-primary wbdv-row wbdv-button wbdv-deletemx-2"
-            aria-label="Remove Course"
-            onClick={() => this.props.deleteModule(this.props.module.title)}
-          >
-            <span
-              className="glyphicon glyphicon-remove"
-              aria-hidden="true"
-            ></span>
-          </button>
+          <EditButton update={this.props.updateModule} item={this.props.module} />
+          <DeleteButton delete={this.props.deleteModule} item={this.props.module} />
         </div>
       </li>
     );

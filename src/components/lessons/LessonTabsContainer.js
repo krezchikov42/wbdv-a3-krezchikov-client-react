@@ -22,8 +22,8 @@ export default class LessonTabsContainer extends React.Component {
     this.refreshLessons();
   };
 
-  updateLesson = original_lesson => {
-    this.lesson_service.updateLesson(original_lesson, this.state.title);
+  updateLesson = lesson_id => {
+    this.lesson_service.updateLesson(lesson_id, this.state.title);
     this.refreshLessons();
   };
 
