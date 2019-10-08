@@ -5,7 +5,7 @@ export default class LessonTabs extends React.Component {
     return (
       <div>
         <ul className="nav nav-tabs" role="tablist">
-          {this.props.lessons.map(lesson => (
+          {this.props.lesson_many.map(lesson => (
             <li key={lesson.id} className="nav-item">
               <a
                 className={"nav-link"}
