@@ -10,7 +10,9 @@ export default class TopicList extends React.Component {
                     this.props.topic_many.map(topic =>
                         <TopicItem
                             key={topic.id}
-                            topic={topic}/>
+                            topic={topic}
+                            updateTopic={this.props.updateTopic}
+                            deleteTopic={this.props.deleteTopic}/>
                     )
                 }
             </ul>
