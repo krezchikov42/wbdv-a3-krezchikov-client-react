@@ -1,4 +1,6 @@
 import React from "react";
+import EditButton from "../EditButton"
+import DeleteButton from "../DeleteButton"
 
 export default class LessonTabs extends React.Component {
   render() {
@@ -14,6 +16,8 @@ export default class LessonTabs extends React.Component {
                 data-toggle="tab"
               >
                 {lesson.title}
+                <EditButton update={this.props.updateLesson} title={lesson.title} />
+                <DeleteButton delete={this.props.deleteLesson} title={lesson.title} />
               </a>
             </li>
           ))}

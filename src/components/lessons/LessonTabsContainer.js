@@ -1,12 +1,13 @@
 import React from "react";
 import LessonTabs from "./LessonTabs";
-// import LessonManyService from "../../services/LessonManyService";
+
+import LessonManyService from "../../services/LessonManyService";
 
 export default class LessonTabsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { lesson_many: this.props.lesson_many, title: "" };
-    // this.lesson_service = new LessonManyService(this.state.lesson_many);
+    this.lesson_service = new LessonManyService(this.state.lesson_many);
   }
 
   titleChanged = event => {

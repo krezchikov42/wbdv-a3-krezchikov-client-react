@@ -7,7 +7,7 @@ export default class EditButton extends React.Component {
         type="button"
         className="btn btn-primary wbdv-row wbdv-button wbdv-edit mx-2"
         aria-label="Remove Course"
-        onClick={() => this.props.updateModule(this.props.module.title)}
+        onClick={() => this.props.update(this.props.title)}
       >
         <span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>
       </button>
