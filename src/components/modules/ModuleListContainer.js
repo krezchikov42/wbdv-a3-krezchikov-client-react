@@ -22,6 +22,13 @@ export default class ModuleListContainer extends React.Component {
     this.setState({module_many: new_modules, title: ''})
   };
 
+  updateModule = (original_module) => {
+    console.log(original_module)
+    this.module_service.updateModule(original_module,this.state.title)
+    let new_modules = this.module_service.getModules();
+    this.setState({module_many: new_modules, title: ''})
+  }
+
   render() {
     return (
       <div>
@@ -41,7 +48,7 @@ export default class ModuleListContainer extends React.Component {
             </button>
           </li>
           {this.state.module_many.map(module => (
-            <ModuleListItem key={module.id} module={module} />
+            <ModuleListItem key={module.id} module={module} updateModule={this.updateModule}/>
           ))}
         </ul>
       </div>

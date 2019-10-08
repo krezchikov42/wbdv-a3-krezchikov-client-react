@@ -22,7 +22,7 @@ export default class ModuleManyService {
     }
 
     updateModule(org_module_title, new_module_title) {
-        let found_module_index = this.module_many.indIndex(module => module.title == org_module_title);
+        let found_module_index = this.module_many.findIndex(module => module.title === org_module_title);
         this.module_many[found_module_index].title = new_module_title;
     }
 
