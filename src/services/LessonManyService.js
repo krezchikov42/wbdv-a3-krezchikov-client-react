@@ -6,7 +6,7 @@ export default class LessonManyService {
 
     createLesson(lesson_title){
         if (lesson_title == ''){
-            lesson_title = 'Default Lesson'
+            lesson_title = 'New Lesson'
         }
         let lesson = {
             title: lesson_title,
