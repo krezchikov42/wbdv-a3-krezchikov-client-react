@@ -22,7 +22,7 @@ export default class CoursesContainer extends React.Component {
         ret = (
           <CourseGrid
             course_many={this.props.course_many}
-            renderCourses={this.renderCourses}
+            renderCourses={this.props.renderCourses}
             setCourseStyle={this.props.setCourseStyle}
             />
         );
@@ -31,7 +31,7 @@ export default class CoursesContainer extends React.Component {
         ret = (
           <CourseTable
             course_many={this.props.course_many}
-            renderCourses={this.renderCourses}
+            renderCourses={this.props.renderCourses}
             setCourseStyle={this.props.setCourseStyle}
           />
         );
