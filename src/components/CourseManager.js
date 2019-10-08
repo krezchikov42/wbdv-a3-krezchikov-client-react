@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import CourseTable from "./CourseTable";
 import CourseService from "../services/CourseService";
 import CourseManagerHeader from "./CourseManagerHeader";
-import CourseGrid from "./CourseGrid/CourseGrid";
 import CoursesContainer from "./CoursesContainer";
 
 export default class CourseManger extends React.Component {

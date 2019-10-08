@@ -2,33 +2,18 @@ import React from "react";
 import LessonTabsContainer from "./lessons/LessonTabsContainer";
 import ModuleListContainer from "./modules/ModuleListContainer";
 import TopicListContainer from "./topics/TopicListContainer"
-
-const course_ex = {
-  title: "Course 123",
-  modules: [
-    {
-      title: "Module 1",
-      id: 123,
-      lessons: [
-        { title: "Lesson 1.1", id: 123, selected: true,  
-        topics: [{
-            title: "DOM", }] },
-        { title: "Lesson 1.2", id: 234 },
-        { title: "Lesson 1.3", id: 345 },
-        { title: "Lesson 1.4", id: 456 }
-      ]
-    },
-    { title: "Module 2", id: 234 },
-    { title: "Module 3", id: 345 }
-  ]
-};
+import CourseService from "../services/CourseService"
 
 class CourseEditor extends React.Component {
   constructor(props) {
     super(props);
+    let course_id = this.props.match.params.course_id
+    let course_service = CourseService.getInstance()
+    let course = course_service.findCourseById(course_id)
     this.state = {
-      course: course_ex,
+      course: course,
       selected_module_index: 0
+      selected_lesson_index: 0,
     };
   }
 

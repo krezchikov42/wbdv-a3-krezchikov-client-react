@@ -1,9 +1,10 @@
 import React from "react";
 import CourseService from "../services/CourseService";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 export default class CourseCard extends React.Component {
   render() {
-      let course = this.props.course
+    let course = this.props.course;
     return (
       <div className="card" style={{ width: "18rem" }}>
         <img
@@ -12,7 +13,9 @@ export default class CourseCard extends React.Component {
           src="https://picsum.photos/300/200"
         />
         <div className="card-body">
-          <h5 className="card-title">{course.title}</h5>
+          <Link to={`/course_editor/${course.id}`}>
+            <h5 className="card-title">{course.title}</h5>
+          </Link>
           <p className="card-text">Card text.</p>
           <button
             type="button"
