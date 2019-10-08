@@ -1,8 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
-import WhiteBoard from "./components/WhiteBoard"
-import CourseManager from "./components/CourseManager"
-import CourseEditor from "./components/CourseEditor"
+import WhiteBoard from "./components/main_pages/WhiteBoard"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 

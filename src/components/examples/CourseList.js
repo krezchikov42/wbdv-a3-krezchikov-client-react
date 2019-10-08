@@ -1,6 +1,6 @@
 import React from 'react'
-import CourseRow from "./CourseRow";
-import CourseService from "../services/CourseService";
+import CourseRow from "../CourseTable/CourseRow";
+import CourseService from "../../services/CourseService";
 
 let courseService = CourseService.getInstance()
 

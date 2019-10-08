@@ -1,8 +1,6 @@
 import React from "react";
-import PropTypes from "prop-types";
-import CourseService from "../services/CourseService";
+import CourseService from "../../services/CourseService";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CourseEditor from "./CourseEditor";
 
 export default class CourseRow extends React.Component {
   render() {

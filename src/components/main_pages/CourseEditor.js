@@ -1,8 +1,8 @@
 import React from "react";
-import LessonTabsContainer from "./lessons/LessonTabsContainer";
-import ModuleListContainer from "./modules/ModuleListContainer";
-import TopicListContainer from "./topics/TopicListContainer"
-import CourseService from "../services/CourseService"
+import LessonTabsContainer from "../lessons/LessonTabsContainer";
+import ModuleListContainer from "../modules/ModuleListContainer";
+import TopicListContainer from "../topics/TopicListContainer"
+import CourseService from "../../services/CourseService"
 
 class CourseEditor extends React.Component {
   constructor(props) {

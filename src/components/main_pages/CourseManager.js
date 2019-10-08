@@ -1,9 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
-import CourseTable from "./CourseTable";
-import CourseService from "../services/CourseService";
-import CourseManagerHeader from "./CourseManagerHeader";
-import CoursesContainer from "./CoursesContainer";
+import CourseService from "../../services/CourseService";
+import CourseManagerHeader from "../CourseManagerHeader";
+import CoursesContainer from "../CoursesContainer";
 
 export default class CourseManger extends React.Component {
   constructor(props) {

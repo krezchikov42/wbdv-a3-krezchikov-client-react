@@ -1,7 +1,7 @@
 import React from 'react'
 import CourseRow from './CourseRow';
 import PropTypes from 'prop-types';
-import ChangeCourseStyleGroup from './ChangeCourseStyleGroup'
+import ChangeCourseStyleGroup from '../ChangeCourseStyleGroup'
 
 
 

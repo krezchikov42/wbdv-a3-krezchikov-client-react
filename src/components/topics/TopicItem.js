@@ -1,6 +1,6 @@
 import React from "react";
-import EditButton from "../EditButton";
-import DeleteButton from "../DeleteButton";
+import EditButton from "../buttons/EditButton";
+import DeleteButton from "../buttons/DeleteButton";
 
 export default class TopicListItem extends React.Component {
   render() {

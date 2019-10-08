@@ -1,5 +1,5 @@
 import React from "react";
-import CourseCard from "../CourseCard";
+import CourseCard from "./CourseCard";
 import CourseGridHeader from "./CourseGridHeader";
 import "./CourseGridStyle.css";
 

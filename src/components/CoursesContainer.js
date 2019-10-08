@@ -1,6 +1,6 @@
 import React from "react";
 import CourseGrid from "./CourseGrid/CourseGrid";
-import CourseTable from "./CourseTable";
+import CourseTable from "./CourseTable/CourseTable";
 
 const CourseStyles = {
   GRID: "grid",

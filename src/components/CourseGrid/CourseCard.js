@@ -1,5 +1,5 @@
 import React from "react";
-import CourseService from "../services/CourseService";
+import CourseService from "../../services/CourseService";
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 
 export default class CourseCard extends React.Component {
