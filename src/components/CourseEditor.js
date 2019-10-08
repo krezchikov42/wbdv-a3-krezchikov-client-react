@@ -1,5 +1,5 @@
 import React from "react";
-import LessonTabs from "./LessonTabs";
+import LessonTabsContainer from "./lessons/LessonTabsContainer";
 import ModuleListContainer from "./modules/ModuleListContainer";
 
 const course_ex = {
@@ -36,9 +36,9 @@ class CourseEditor extends React.Component {
       let course = this.state.course;
       let lessons = course.modules[this.state.selected_module_index].lessons;
       lessonTabs = (
-        <LessonTabs
+        <LessonTabsContainer
           have_selected_module={have_selected_module}
-          lessons={lessons}
+          lesson_many={lessons}
         />
       );
     }
