@@ -7,6 +7,13 @@ import CourseEditor from "./CourseEditor";
 import Page1 from "./Page1";
 import Page2 from "./Page2";
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import WidgetListComponent from "./WidgetListComponent";
+import WidgetListContainer from "../containers/WidgetListContainer";
+import widgetListReducer from "../reducers/widgetListReducer";
+import {createStore} from 'redux'
+import {Provider} from 'react-redux'
+
+const store = createStore(widgetListReducer)
 
 export default class WhiteBoard extends React.Component {
     render() {
@@ -14,6 +21,11 @@ export default class WhiteBoard extends React.Component {
             <Router>
                 <div>
                     <h1>White Board</h1>
+
+                    <Provider store={store}>
+                        <WidgetListContainer/>
+                    </Provider>
+
                     <Link to='/editor'>Editor</Link>
                     <Link to='/list'>List</Link>
 

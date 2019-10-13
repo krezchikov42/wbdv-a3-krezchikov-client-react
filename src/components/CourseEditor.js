@@ -9,7 +9,7 @@ const course = {
         {
             title: 'Module 1', id: 123,
             lessons: [
-                {title: 'Lesson 1.1', id: 123, selected: true},
+                  {title: 'Lesson 1.1', id: 123, selected: true},
                 {title: 'Lesson 1.2', id: 234},
                 {title: 'Lesson 1.3', id: 345},
                 {title: 'Lesson 1.4', id: 456},
