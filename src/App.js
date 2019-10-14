@@ -1,12 +1,12 @@
 import React from 'react';
-import WhiteBoard from "./components/main_pages/WhiteBoard"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import WhiteBoard from './components/WhiteBoard';
 
 
 function App() {
   return (
     <div className="container">
-        <WhiteBoard/>
+        <WhiteBoard />
     </div>
   );
 }
