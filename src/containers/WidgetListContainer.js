@@ -1,5 +1,5 @@
 import React from 'react'
-import WidgetListComponent from "../components/WidgetListComponent";
+import WidgetListComponent from "../components/widgets/WidgetListComponent";
 import {connect} from 'react-redux'
 
 const stateToPropertyMapper = state => {
