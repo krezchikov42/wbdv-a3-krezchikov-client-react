@@ -19,6 +19,9 @@ const dispatcherToPropertyMapper = dispatch => {
         },
         changeWidgetTypeToCreate: (event) => {
             dispatch({type: 'CHANGE_TO_CREATE', widget_type: event.target.value})
+        },
+        updateWidget: (widget_id, widget) => {
+            dispatch({type: 'UPDATE_WIDGET', widget: widget, widget_id: widget_id})
         }
     }
 }
