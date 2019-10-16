@@ -5,7 +5,8 @@ import {connect} from 'react-redux'
 const stateToPropertyMapper = state => {
     return {
         widgets: state.widgets,
-        widget_type_create:  state.widget_type_create
+        widget_type_create:  state.widget_type_create,
+        preview: state.preview
     }
 }
 
@@ -22,6 +23,9 @@ const dispatcherToPropertyMapper = dispatch => {
         },
         updateWidget: (widget_id, widget) => {
             dispatch({type: 'UPDATE_WIDGET', widget: widget, widget_id: widget_id})
+        },
+        changePreview: (event) => {
+            dispatch({type: 'CHANGE_TO_PREVIEW', preview: event.target.checked})
         }
     }
 }

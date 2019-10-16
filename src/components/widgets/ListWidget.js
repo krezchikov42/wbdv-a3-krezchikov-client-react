@@ -9,15 +9,15 @@ export default class ListWidget extends React.Component {
         <div>
           {!this.props.widget.ordered && (
             <ul>
-              {this.props.widget.text.split("\n").map(item => (
-                <li>{item}</li>
+              {this.props.widget.text.split("\n").map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </ul>
           )}
           {this.props.widget.ordered && (
             <ol>
-              {this.props.widget.text.split("\n").map(item => (
-                <li>{item}</li>
+              {this.props.widget.text.split("\n").map((item, index) => (
+                <li key={index}>{item}</li>
               ))}
             </ol>
           )}

@@ -6,7 +6,8 @@ const initialState = {
     { type: "HEADING", size: 6, text: "Hello from Redux", id: 234 },
     { type: "PARAGRAPH", text: "Hello from Redux paragraph", id: 345 }
   ],
-  widget_type_create: "LIST"
+  widget_type_create: "LIST",
+  preview: false,
 };
 
 const widgetListReducer = (state = initialState, action) => {
@@ -35,6 +36,11 @@ const widgetListReducer = (state = initialState, action) => {
         ...state,
         widget_type_create: action.widget_type
       };
+    case "CHANGE_TO_PREVIEW":
+        return {
+            ...state,
+            preview: action.preview
+        }
     case "UPDATE_WIDGET":
       let widget_new = action.widget;
       let found_module_index = state.widgets.findIndex(
