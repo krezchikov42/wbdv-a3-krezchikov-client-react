@@ -35,13 +35,16 @@ export default class WidgetListComponent extends React.Component {
           </label>
         </div>
         <ul>
-          {this.props.widgets.map(widget => (
+          {this.props.widgets.map((widget, index) => (
             <li key={widget.id}>
               {widget.type === "LIST" && (
                 <ListWidget
                   widget={widget}
                   updateWidget={this.props.updateWidget}
                   preview={this.props.preview}
+                  index={index}
+                  length_widgets = {this.props.widgets.length}
+                  moveWidget = {this.props.moveWidget}
                 />
               )}
               {widget.type === "HEADING" && <HeadingWidget widget={widget} />}
@@ -67,5 +70,6 @@ WidgetListComponent.propTypes = {
   changeWidgetTypeToCreate: PropTypes.func.isRequired,
   updateWidget: PropTypes.func.isRequired,
   preview: PropTypes.bool.isRequired,
-  changePreview: PropTypes.func.isRequired
+  changePreview: PropTypes.func.isRequired,
+  moveWidget: PropTypes.func.isRequired
 };

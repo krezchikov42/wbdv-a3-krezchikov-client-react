@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import MoveUpButton from "../buttons/MoveUp";
+import MoveDownButton from "../buttons/MoveDown";
 
 export default class ListWidget extends React.Component {
   render() {
@@ -30,9 +32,23 @@ export default class ListWidget extends React.Component {
     let order_select_value = this.orderedBoolToString(
       this.props.widget.ordered
     );
+    let should_render_up_button = this.props.index !== 0;
+    let should_render_down_button =
+      this.props.index < this.props.length_widgets - 1;
+
     return (
       <div>
         <h2>List Widget</h2>
+        <MoveUpButton
+          should_render={should_render_up_button}
+          index={this.props.index}
+          onClick={this.props.moveWidget}
+        />
+        <MoveDownButton
+          should_render={should_render_down_button}
+          index={this.props.index}
+          onClick={this.props.moveWidget}
+        />
         <div className="form-group">
           <textarea
             value={this.props.widget.text}
@@ -80,6 +96,9 @@ export default class ListWidget extends React.Component {
 }
 
 ListWidget.propTypes = {
-  widget: PropTypes.object,
-  updateWidget: PropTypes.func
+  widget: PropTypes.object.isRequired,
+  updateWidget: PropTypes.func.isRequired,
+  index: PropTypes.number.isRequired,
+  length_widgets: PropTypes.number.isRequired,
+  moveWidget: PropTypes.func.isRequired
 };

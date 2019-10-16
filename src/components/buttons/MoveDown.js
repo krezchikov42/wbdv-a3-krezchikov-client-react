@@ -11,13 +11,14 @@ export default class MoveDownButton extends React.Component {
               aria-label="Remove Course"
               onClick={() => this.props.onClick(this.props.index, this.props.index +1)}
             >
-              <span className="glyphicon glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+              <span className="glyphicon glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
             </button>)}
     </div>);
   }
 }
 
-MoveDownButton.proptypes = {
-    should_render: PropTypes.bool.isRequired,
-    index: PropTypes.number.isRequired
-}
+// MoveDownButton.proptypes = {
+//     should_render: PropTypes.bool.isRequired,
+//     index: PropTypes.number.isRequired,
+//     onClick: PropTypes.func.isRequired,
+// }

@@ -17,7 +17,8 @@ export default class MoveUpButton extends React.Component {
   }
 }
 
-MoveUpButton.proptypes = {
-    should_render: PropTypes.bool.isRequired,
-    index: PropTypes.number.isRequired
-}
+// MoveUpButton.proptypes = {
+//     should_render: PropTypes.bool.isRequired,
+//     index: PropTypes.number.isRequired,
+//     onClick: PropTypes.func.isRequired,
+// }

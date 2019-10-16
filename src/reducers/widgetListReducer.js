@@ -1,5 +1,5 @@
 import {replaceAt} from '../utils/utils'
-const clonedeep = require('lodash.clonedeep')
+import cloneDeep from 'lodash/cloneDeep';
 
 const initialState = {
   widgets: [
@@ -51,14 +51,15 @@ const widgetListReducer = (state = initialState, action) => {
       return {...state,
                 widgets: widget_many_new};
     case "MOVE_WIDGET":
-        let widget_many = clonedeep(state.widgets)
+        let widget_many = cloneDeep(state.widgets)
         let old_index = action.old_index
         let new_index = action.new_index
         if (new_index < 0 || new_index >= widget_many.length){
+            console.log('Trying to move widget to index that does not exist')
             return state
         }
 
-        let copy_widget = clonedeep(widget_many[new_index])
+        let copy_widget = cloneDeep(widget_many[new_index])
         widget_many[new_index] = widget_many[old_index]
         widget_many[old_index] = copy_widget
         return {...state,

@@ -26,6 +26,9 @@ const dispatcherToPropertyMapper = dispatch => {
         },
         changePreview: (event) => {
             dispatch({type: 'CHANGE_TO_PREVIEW', preview: event.target.checked})
+        },
+        moveWidget: (old_index, new_index) => {
+            dispatch({type: "MOVE_WIDGET", old_index:old_index, new_index:new_index})
         }
     }
 }
