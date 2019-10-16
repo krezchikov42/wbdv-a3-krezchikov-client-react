@@ -50,6 +50,17 @@ export default class ListWidget extends React.Component {
           onClick={this.props.moveWidget}
         />
         <div className="form-group">
+          <select
+            className="form-control"
+            value={this.props.widget.type}
+            onChange={this.changeTypeWidget}
+          >
+            <option value="LIST">List Widget</option>
+            <option value="HEADING">Header Widget</option>
+            <option value="PARAGRAPH">Paragraph widget</option>
+          </select>
+        </div>
+        <div className="form-group">
           <textarea
             value={this.props.widget.text}
             onChange={this.changeText}
@@ -93,6 +104,12 @@ export default class ListWidget extends React.Component {
     let widget = { ...this.props.widget, text: new_text };
     this.props.updateWidget(widget.id, widget);
   };
+
+  changeTypeWidget =  e => {
+    let new_type = e.target.value
+    let widget = {...this.props.widget, type: new_type}
+    this.props.updateWidget(widget.id, widget)
+  }
 }
 
 ListWidget.propTypes = {
