@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class MoveUpButton extends React.Component {
   render() {
@@ -14,4 +15,9 @@ export default class MoveUpButton extends React.Component {
             </button>)}
     </div>);
   }
+}
+
+MoveUpButton.proptypes = {
+    should_render: PropTypes.bool.isRequired,
+    index: PropTypes.number.isRequired
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 export default class MoveDownButton extends React.Component {
   render() {
@@ -14,4 +15,9 @@ export default class MoveDownButton extends React.Component {
             </button>)}
     </div>);
   }
+}
+
+MoveDownButton.proptypes = {
+    should_render: PropTypes.bool.isRequired,
+    index: PropTypes.number.isRequired
 }
