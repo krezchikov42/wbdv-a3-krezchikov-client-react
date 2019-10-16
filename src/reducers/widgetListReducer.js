@@ -1,4 +1,5 @@
 import {replaceAt} from '../utils/utils'
+const clonedeep = require('lodash.clonedeep')
 
 const initialState = {
   widgets: [
@@ -49,6 +50,19 @@ const widgetListReducer = (state = initialState, action) => {
       let widget_many_new = replaceAt(state.widgets,found_module_index,widget_new)
       return {...state,
                 widgets: widget_many_new};
+    case "MOVE_WIDGET":
+        let widget_many = clonedeep(state.widgets)
+        let old_index = action.old_index
+        let new_index = action.new_index
+        if (new_index < 0 || new_index >= widget_many.length){
+            return state
+        }
+
+        let copy_widget = clonedeep(widget_many[new_index])
+        widget_many[new_index] = widget_many[old_index]
+        widget_many[old_index] = copy_widget
+        return {...state,
+                widgets: widget_many}
     default:
       return state;
   }
