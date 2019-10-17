@@ -2,64 +2,32 @@ import React from "react";
 import PropTypes from "prop-types";
 import MoveUpButton from "../buttons/MoveUp";
 import MoveDownButton from "../buttons/MoveDown";
+import Widget from "./Widget"
 
 export default class ListWidget extends React.Component {
   render() {
     return (
-      <div>
-        {!this.props.preview && this.render_editing_componenets()}
-        <div>
-          {!this.props.widget.ordered && (
-            <ul>
-              {this.props.widget.text.split("\n").map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          )}
-          {this.props.widget.ordered && (
-            <ol>
-              {this.props.widget.text.split("\n").map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ol>
-          )}
-        </div>
-      </div>
+      <Widget title="List Widget"
+      preview={this.props.preview} 
+      editing_components={this.renderEditingComponenets()}
+      preview_componenets={this.renderPreviewComponenets()}
+      index={this.props.index}
+      length_widgets={this.props.length_widgets}
+      widget={this.props.widget}
+      moveWidget={this.props.moveWidget}
+      updateWidget={this.props.updateWidget}
+      deleteWidget={this.props.deleteWidget}
+      />
     );
   }
 
-  render_editing_componenets = () => {
+  renderEditingComponenets = () => {
     let order_select_value = this.orderedBoolToString(
       this.props.widget.ordered
     );
-    let should_render_up_button = this.props.index !== 0;
-    let should_render_down_button =
-      this.props.index < this.props.length_widgets - 1;
 
     return (
       <div>
-        <h2>List Widget</h2>
-        <MoveUpButton
-          should_render={should_render_up_button}
-          index={this.props.index}
-          onClick={this.props.moveWidget}
-        />
-        <MoveDownButton
-          should_render={should_render_down_button}
-          index={this.props.index}
-          onClick={this.props.moveWidget}
-        />
-        <div className="form-group">
-          <select
-            className="form-control"
-            value={this.props.widget.type}
-            onChange={this.changeTypeWidget}
-          >
-            <option value="LIST">List Widget</option>
-            <option value="HEADING">Header Widget</option>
-            <option value="PARAGRAPH">Paragraph widget</option>
-          </select>
-        </div>
         <div className="form-group">
           <textarea
             value={this.props.widget.text}
@@ -78,10 +46,29 @@ export default class ListWidget extends React.Component {
             <option value="not_ordered">Unordered List</option>
           </select>
         </div>
-        <h4>Preview</h4>
       </div>
     );
   };
+
+  renderPreviewComponenets = () => {
+    return (
+    <div>
+      {!this.props.widget.ordered && (
+        <ul>
+          {this.props.widget.text.split("\n").map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ul>
+      )}
+      {this.props.widget.ordered && (
+        <ol>
+          {this.props.widget.text.split("\n").map((item, index) => (
+            <li key={index}>{item}</li>
+          ))}
+        </ol>
+      )}
+    </div>);
+  }
 
   changeTypeList = e => {
     let new_type = this.orderedStringToBool(e.target.value);
@@ -104,12 +91,6 @@ export default class ListWidget extends React.Component {
     let widget = { ...this.props.widget, text: new_text };
     this.props.updateWidget(widget.id, widget);
   };
-
-  changeTypeWidget =  e => {
-    let new_type = e.target.value
-    let widget = {...this.props.widget, type: new_type}
-    this.props.updateWidget(widget.id, widget)
-  }
 }
 
 ListWidget.propTypes = {
@@ -117,5 +98,6 @@ ListWidget.propTypes = {
   updateWidget: PropTypes.func.isRequired,
   index: PropTypes.number.isRequired,
   length_widgets: PropTypes.number.isRequired,
-  moveWidget: PropTypes.func.isRequired
+  moveWidget: PropTypes.func.isRequired,
+  preview: PropTypes.bool.isRequired
 };

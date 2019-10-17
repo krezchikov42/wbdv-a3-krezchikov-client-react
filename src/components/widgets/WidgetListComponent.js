@@ -45,15 +45,13 @@ export default class WidgetListComponent extends React.Component {
                   index={index}
                   length_widgets = {this.props.widgets.length}
                   moveWidget = {this.props.moveWidget}
+                  deleteWidget = {this.props.deleteWidget}
                 />
               )}
               {widget.type === "HEADING" && <HeadingWidget widget={widget} />}
               {widget.type === "PARAGRAPH" && (
                 <ParagraphWidget widget={widget} />
               )}
-              <button onClick={() => this.props.deleteWidget(widget.id)}>
-                Delete
-              </button>
             </li>
           ))}
         </ul>
