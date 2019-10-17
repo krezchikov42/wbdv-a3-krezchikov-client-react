@@ -14,38 +14,52 @@ export default class Widget extends React.Component {
           <div>
             <div className="row">
               <div className="col-2">
-                <h4>{this.props.title}</h4>
+                <h2>{this.props.title}</h2>
               </div>
               <div className="col-7" />
               <div className="col-3">
-                <MoveUpButton
-                  should_render={should_render_up_button}
-                  index={this.props.index}
-                  onClick={this.props.moveWidget}
-                />
-                <MoveDownButton
-                  should_render={should_render_down_button}
-                  index={this.props.index}
-                  onClick={this.props.moveWidget}
-                />
-                  <select
-                    className="form-control"
-                    value={this.props.widget.type}
-                    onChange={this.changeTypeWidget}
-                  >
-                    <option value="LIST">List Widget</option>
-                    <option value="HEADING">Header Widget</option>
-                    <option value="PARAGRAPH">Paragraph widget</option>
-                  </select>
-                  <button
-        type="button"
-        className={"btn btn-danger"}
-        aria-label="Remove Course"
-        onClick={() => this.props.deleteWidget(this.props.widget.id)}
-      >
-        <span className="glyphicon glyphicon-remove" aria-hidden="true"></span>
-      </button>
-
+                <div className="btn-toolbar" role="toolbar">
+                  <div className="btn-group mx-2">
+                    <MoveUpButton
+                      should_render={should_render_up_button}
+                      index={this.props.index}
+                      onClick={this.props.moveWidget}
+                    />
+                    <MoveDownButton
+                      should_render={should_render_down_button}
+                      index={this.props.index}
+                      onClick={this.props.moveWidget}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <select
+                      className="form-control"
+                      value={this.props.widget.type}
+                      onChange={this.changeTypeWidget}
+                    >
+                      <option value="LIST">List Widget</option>
+                      <option value="HEADING">Header Widget</option>
+                      <option value="PARAGRAPH">Paragraph widget</option>
+                    </select>
+                  </div>
+                  <div className="btn-group mx-2">
+                    <div>
+                      <button
+                        type="button"
+                        className="btn btn-danger"
+                        aria-label="Remove Course"
+                        onClick={() =>
+                          this.props.deleteWidget(this.props.widget.id)
+                        }
+                      >
+                        <span
+                          className="glyphicon glyphicon-remove"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
             {this.props.editing_components}
@@ -65,17 +79,17 @@ export default class Widget extends React.Component {
     );
   }
 
-  changeTypeWidget =  e => {
-    let new_type = e.target.value
-    let widget = {...this.props.widget, type: new_type}
-    this.props.updateWidget(widget.id, widget)
-  }
+  changeTypeWidget = e => {
+    let new_type = e.target.value;
+    let widget = { ...this.props.widget, type: new_type };
+    this.props.updateWidget(widget.id, widget);
+  };
 
   changeWidgetName = e => {
-    let new_name = e.target.value
-    let widget = {...this.props.widget, name: new_name}
-    this.props.updateWidget(widget.id, widget)
-  }
+    let new_name = e.target.value;
+    let widget = { ...this.props.widget, name: new_name };
+    this.props.updateWidget(widget.id, widget);
+  };
 }
 
 Widget.propTypes = {
