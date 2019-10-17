@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MoveUpButton from "../buttons/MoveUp";
-import MoveDownButton from "../buttons/MoveDown";
 import Widget from "./Widget"
 
 export default class ListWidget extends React.Component {
