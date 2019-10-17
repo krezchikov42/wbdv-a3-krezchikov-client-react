@@ -6,6 +6,13 @@ import ListWidget from "./ListWidget";
 
 export default class WidgetListComponent extends React.Component {
   render() {
+    const widget_props = {
+      updateWidget: this.props.updateWidget,
+      preview: this.props.preview,
+      length_widgets: this.props.widgets.length,
+      moveWidget: this.props.moveWidget,
+      deleteWidget: this.props.deleteWidget
+    };
     return (
       <div>
         <h2>Widget list</h2>
@@ -38,19 +45,25 @@ export default class WidgetListComponent extends React.Component {
           {this.props.widgets.map((widget, index) => (
             <li key={widget.id}>
               {widget.type === "LIST" && (
-                <ListWidget
+                <ListWidget widget={widget} index={index} {...widget_props} />
+              )}
+              {widget.type === "HEADING" && (
+                <HeadingWidget
+                  widget={widget}
+                  index={index}
+                  {...widget_props}
+                />
+              )}
+              {widget.type === "PARAGRAPH" && (
+                <ParagraphWidget
                   widget={widget}
                   updateWidget={this.props.updateWidget}
                   preview={this.props.preview}
                   index={index}
-                  length_widgets = {this.props.widgets.length}
-                  moveWidget = {this.props.moveWidget}
-                  deleteWidget = {this.props.deleteWidget}
+                  length_widgets={this.props.widgets.length}
+                  moveWidget={this.props.moveWidget}
+                  deleteWidget={this.props.deleteWidget}
                 />
-              )}
-              {widget.type === "HEADING" && <HeadingWidget widget={widget} />}
-              {widget.type === "PARAGRAPH" && (
-                <ParagraphWidget widget={widget} />
               )}
             </li>
           ))}
