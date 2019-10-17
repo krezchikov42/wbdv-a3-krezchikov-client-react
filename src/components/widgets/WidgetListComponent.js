@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import HeadingWidget from "./HeadingWidget";
 import ParagraphWidget from "./ParagraphWidget";
 import ListWidget from "./ListWidget";
+import ImageWidget from "./ImageWidget";
 
 export default class WidgetListComponent extends React.Component {
   render() {
@@ -25,7 +26,8 @@ export default class WidgetListComponent extends React.Component {
           >
             <option value="LIST">List Widget</option>
             <option value="HEADING">Header Widget</option>
-            <option value="PARAGRAPH">Paragraph widget</option>
+            <option value="PARAGRAPH">Paragraph Widget</option>
+            <option value="IMAGE">Image Widget</option>
           </select>
         </div>
         <button onClick={this.props.addWidget}>Add Widget</button>
@@ -57,14 +59,14 @@ export default class WidgetListComponent extends React.Component {
               {widget.type === "PARAGRAPH" && (
                 <ParagraphWidget
                   widget={widget}
-                  updateWidget={this.props.updateWidget}
-                  preview={this.props.preview}
                   index={index}
-                  length_widgets={this.props.widgets.length}
-                  moveWidget={this.props.moveWidget}
-                  deleteWidget={this.props.deleteWidget}
+                  {...widget_props}
                 />
               )}
+              {widget.type === "IMAGE" && (
+                <ImageWidget widget={widget} index={index} {...widget_props} />
+              )}
+              
             </li>
           ))}
         </ul>
