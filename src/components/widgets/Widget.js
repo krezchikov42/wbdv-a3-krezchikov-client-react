@@ -55,6 +55,7 @@ export default class Widget extends React.Component {
                       <option value="HEADING">Header Widget</option>
                       <option value="PARAGRAPH">Paragraph widget</option>
                       <option value="IMAGE">Image Widget</option>
+                      <option value="LINK">Link Widget</option>
                     </select>
                   </div>
                   <div className="btn-group mx-2">
