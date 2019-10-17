@@ -95,5 +95,12 @@ export default class Widget extends React.Component {
 Widget.propTypes = {
   editing_components: PropTypes.element.isRequired,
   preview: PropTypes.bool.isRequired,
-  preview_componenets: PropTypes.element.isRequired
+  preview_componenets: PropTypes.element.isRequired,
+  index: PropTypes.number.isRequired,
+  length_widgets: PropTypes.number.isRequired,
+  widget: PropTypes.object.isRequired,
+  title: PropTypes.string.isRequired,
+  moveWidget: PropTypes.func.isRequired,
+  deleteWidget: PropTypes.func.isRequired,
+  updateWidget: PropTypes.func.isRequired,
 };
