@@ -27,10 +27,10 @@ export default class Widget extends React.Component {
         {!this.props.preview && (
           <div>
             <div className="row">
-              <div className="col-2">
+              <div className="col-3">
                 <h2>{this.props.title}</h2>
               </div>
-              <div className="col-7" />
+              <div className="col-6" />
               <div className="col-3">
                 <div className="btn-toolbar" role="toolbar">
                   <div className="btn-group mx-2">
