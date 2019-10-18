@@ -7,13 +7,12 @@ export default class LessonTabs extends React.Component {
     return (
       <div>
         <ul className="nav nav-tabs" role="tablist">
-          {this.props.lesson_many.map(lesson => (
+          {this.props.lesson_many.map((lesson,index) => (
             <li key={lesson.id} className="nav-item">
               <a
-                className={"nav-link"}
-                // className={lesson.selected ? "nav-link active" : "nav-link"}
-                // href="#"
+                className="nav-link"
                 data-toggle="tab"
+                onClick={() => this.props.selectLessonIndex(index)}
               >
                 {lesson.title}
                 <EditButton update={this.props.updateLesson} item={lesson} />

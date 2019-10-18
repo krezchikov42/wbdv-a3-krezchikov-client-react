@@ -54,12 +54,13 @@ export default class ModuleListContainer extends React.Component {
               Create
             </button>
           </li>
-          {this.state.module_many.map(module => (
+          {this.state.module_many.map((module, index) => (
             <ModuleListItem
               key={module.id}
               module={module}
               updateModule={this.updateModule}
               deleteModule={this.deleteModule}
+              selectModuleIndex={() => this.props.selectModuleIndex(index)}
             />
           ))}
         </ul>

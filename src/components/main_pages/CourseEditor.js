@@ -38,23 +38,27 @@ class CourseEditor extends React.Component {
             <ModuleListContainer
               module_many={this.state.course.modules}
               selectModuleIndex={this.selectModuleIndex}
+              selected_module_index={this.state.selected_module_index}
             />
           </div>
           <div className="col-9">
-            {have_lesson && (
+            {have_module && (
               <LessonTabsContainer
                 lesson_many={
-                  this.state.course.modules[this.state.selected_lesson_index]
+                  this.state.course.modules[this.state.selected_module_index]
                     .lessons
                 }
+                selectLessonIndex={this.selectLessonIndex}
+                selected_lesson_index={this.state.selected_lesson_index}
               />
             )}
-            {have_topic && (
+            {have_lesson && (
               <TopicListContainer
                 topic_many={
-                  this.state.course.modules[this.state.selected_lesson_index]
+                  this.state.course.modules[this.state.selected_module_index]
                     .lessons[this.state.selected_lesson_index].topics
                 }
+                selected_topic_index={this.selected_topic_index}
               />
             )}
           </div>
@@ -64,11 +68,14 @@ class CourseEditor extends React.Component {
   }
 
   selectModuleIndex = index => {
-    this.setState({ selected_module_index: index });
+    console.log(index)
+    console.log(this.state.course.modules[index]
+      .lessons)
+    this.setState({ selected_module_index: index ,selected_lesson_index:0, selected_topic_index:0});
   };
 
   selectLessonIndex = index => {
-    this.setState({ selected_lesson_index: index });
+    this.setState({ selected_lesson_index: index, selected_topic_index: 0});
   };
 
   selectTopicIndex = index => {

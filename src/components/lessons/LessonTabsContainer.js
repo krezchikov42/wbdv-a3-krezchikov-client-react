@@ -7,7 +7,7 @@ export default class LessonTabsContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = { lesson_many: this.props.lesson_many, title: "" };
-    this.lesson_service = new LessonManyService(this.state.lesson_many);
+    this.lesson_service = new LessonManyService(this.props.lesson_many);
   }
 
   titleChanged = event => {
@@ -60,6 +60,7 @@ export default class LessonTabsContainer extends React.Component {
               lesson_many={this.state.lesson_many}
               updateLesson={this.updateLesson}
               deleteLesson={this.deleteLesson}
+              selectLessonIndex={this.props.selectLessonIndex}
             />
         </ul>
 
