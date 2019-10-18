@@ -9,29 +9,18 @@
                         "topics": [{
                                 "title": "DOM",
                                 "id": 213123,
-                                "widgets": [{
-                                        "type": "HEADING",
-                                        "size": 1,
-                                        "text": "The Document Object Model"
-                                    },
+                                "widgets": [
+                                    { "type": "LIST", "ordered": true, "text": "Item 1\nItem 2\nItem 3", "id": 123 },
+                                    { "type": "HEADING", "size": 6, "text": "Hello from Redux", "id": 234 },
+                                    { "type": "PARAGRAPH", "text": "Hello from Redux paragraph", "id": 345 },
+                                    { "type": "IMAGE", "text": "https://picsum.photos/100/100" , "id": 1287389271093},
                                     {
-                                        "type": "PARAGRAPH",
-                                        "text": "This topic introduces the DOM"
-                                    },
-                                    {
-                                        "type": "LIST",
-                                        "text": "Nodes\nAttributes\nTag names\nIDs\nStyles\nClasses"
-                                    },
-                                    {
-                                        "type": "IMAGE",
-                                        "text": "https://picsum.photos/200"
-                                    },
-                                    {
-                                        "type": "LINK",
-                                        "text": "The DOM",
-                                        "url": "https://en.wikipedia.org/wiki/Document_Object_Model"
+                                      "type": "LINK",
+                                      "text": "hello",
+                                      "url": "https://getbootstrap.com/docs/4.0/components/forms/",
+                                      "id": 219038092189038
                                     }
-                                ]
+                                  ]
                             },
                             {
                                 "title": "Tags",
