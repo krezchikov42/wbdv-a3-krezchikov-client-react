@@ -18,7 +18,7 @@ const initialState = {
   preview: false
 };
 
-const widgetListReducer = (state = initialState, action) => {
+const widgetListReducer = (state, action) => {
   switch (action.type) {
     case "DELETE_WIDGET":
       return {

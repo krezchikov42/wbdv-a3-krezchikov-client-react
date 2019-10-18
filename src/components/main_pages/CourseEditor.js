@@ -3,6 +3,10 @@ import LessonTabsContainer from "../lessons/LessonTabsContainer";
 import ModuleListContainer from "../modules/ModuleListContainer";
 import TopicListContainer from "../topics/TopicListContainer";
 import CourseService from "../../services/CourseService";
+import WidgetListContainer from "../../containers/WidgetListContainer"
+import widgetListReducer from "../../reducers/widgetListReducer";
+import { createStore } from "redux";
+import { Provider } from "react-redux";
 
 class CourseEditor extends React.Component {
   constructor(props) {
@@ -19,6 +23,8 @@ class CourseEditor extends React.Component {
   }
 
   render() {
+
+    let store;
     let have_module = this.state.course.modules.length !== 0;
     let have_lesson =
       have_module &&
@@ -29,6 +35,23 @@ class CourseEditor extends React.Component {
       this.state.course.modules[this.state.selected_module_index].lessons[
         this.state.selected_lesson_index
       ].topics.length !== 0;
+
+    if (have_topic){
+      store = createStore(widgetListReducer, {
+        widgets: this.state.course.modules[this.state.selected_module_index]
+          .lessons[this.state.selected_lesson_index].topics[
+          this.state.selected_topic_index
+        ].widgets,
+        widget_type_create: "LIST",
+    preview: false
+      });
+    }else{
+      store = createStore(widgetListReducer, {
+        widgets: [],
+        widget_type_create: "LIST",
+    preview: false
+      });
+    }
 
     return (
       <div>
@@ -61,6 +84,11 @@ class CourseEditor extends React.Component {
                 selected_topic_index={this.selected_topic_index}
               />
             )}
+            {have_topic && (
+              <Provider store={store}>
+                <WidgetListContainer />
+              </Provider>
+            )}
           </div>
         </div>
       </div>
@@ -68,14 +96,15 @@ class CourseEditor extends React.Component {
   }
 
   selectModuleIndex = index => {
-    console.log(index)
-    console.log(this.state.course.modules[index]
-      .lessons)
-    this.setState({ selected_module_index: index ,selected_lesson_index:0, selected_topic_index:0});
+    this.setState({
+      selected_module_index: index,
+      selected_lesson_index: 0,
+      selected_topic_index: 0
+    });
   };
 
   selectLessonIndex = index => {
-    this.setState({ selected_lesson_index: index, selected_topic_index: 0});
+    this.setState({ selected_lesson_index: index, selected_topic_index: 0 });
   };
 
   selectTopicIndex = index => {

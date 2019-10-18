@@ -20,16 +20,16 @@
                                     },
                                     {
                                         "type": "LIST",
-                                        "items": "Nodes,Attributes,Tag names,IDs,Styles,Classes"
+                                        "text": "Nodes\nAttributes\nTag names\nIDs\nStyles\nClasses"
                                     },
                                     {
                                         "type": "IMAGE",
-                                        "src": "https://picsum.photos/200"
+                                        "text": "https://picsum.photos/200"
                                     },
                                     {
                                         "type": "LINK",
-                                        "title": "The DOM",
-                                        "href": "https://en.wikipedia.org/wiki/Document_Object_Model"
+                                        "text": "The DOM",
+                                        "url": "https://en.wikipedia.org/wiki/Document_Object_Model"
                                     }
                                 ]
                             },

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import WhiteBoard from './components/WhiteBoard';
+import WhiteBoard from './components/main_pages/WhiteBoard';
 
 
 function App() {
