@@ -6,7 +6,4 @@ const Add = ({a, b}) => {
     )
 }
 
-// const Add = ({a, b}) =>
-//     <h1>{a + b}</h1>
-
 export default Add;
