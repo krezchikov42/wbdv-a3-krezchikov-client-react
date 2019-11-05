@@ -11,28 +11,37 @@ import { Provider } from "react-redux";
 class CourseEditor extends React.Component {
   constructor(props) {
     super(props);
-    let course_id = this.props.match.params.course_id;
-    let course_service = CourseService.getInstance();
-    let course = course_service.findCourseById(course_id);
+    let init_course = {
+      title: '',
+      moduleMany: []
+    }
     this.state = {
-      course: course,
+      course: init_course,
       selected_module_index: 0,
       selected_lesson_index: 0,
       selected_topic_index: 0
     };
   }
 
+  componentDidMount() {
+    let course_id = this.props.match.params.course_id;
+    let course_service = CourseService.getInstance();
+    let course = course_service.findCourseById(course_id).then(
+      course => this.setState({course: course})
+    );
+  }
+
   render() {
 
     let store;
-    let have_module = this.state.course.modules.length !== 0;
+    let have_module = this.state.course && this.state.course.moduleMany.length !== 0;
     let have_lesson =
       have_module &&
-      this.state.course.modules[this.state.selected_module_index].lessons
+      this.state.course.moduleMany[this.state.selected_module_index].lessons
         .length !== 0;
     let have_topic =
       have_lesson &&
-      this.state.course.modules[this.state.selected_module_index].lessons[
+      this.state.course.moduleMany[this.state.selected_module_index].lessons[
         this.state.selected_lesson_index
       ].topics.length !== 0;
 
@@ -46,7 +55,7 @@ class CourseEditor extends React.Component {
         <div className="row">
           <div className="col-3">
             <ModuleListContainer
-              module_many={this.state.course.modules}
+              module_many={this.state.course.moduleMany}
               selectModuleIndex={this.selectModuleIndex}
               selected_module_index={this.state.selected_module_index}
             />
@@ -55,7 +64,7 @@ class CourseEditor extends React.Component {
             {have_module && (
               <LessonTabsContainer
                 lesson_many={
-                  this.state.course.modules[this.state.selected_module_index]
+                  this.state.course.moduleMany[this.state.selected_module_index]
                     .lessons
                 }
                 selectLessonIndex={this.selectLessonIndex}
@@ -65,7 +74,7 @@ class CourseEditor extends React.Component {
             {have_lesson && (
               <TopicListContainer
                 topic_many={
-                  this.state.course.modules[this.state.selected_module_index]
+                  this.state.course.moduleMany[this.state.selected_module_index]
                     .lessons[this.state.selected_lesson_index].topics
                 }
                 selected_topic_index={this.selected_topic_index}
