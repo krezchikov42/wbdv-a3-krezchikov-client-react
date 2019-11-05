@@ -37,20 +37,7 @@ class CourseEditor extends React.Component {
       ].topics.length !== 0;
 
     if (have_topic){
-      store = createStore(widgetListReducer, {
-        widgets: this.state.course.modules[this.state.selected_module_index]
-          .lessons[this.state.selected_lesson_index].topics[
-          this.state.selected_topic_index
-        ].widgets,
-        widget_type_create: "LIST",
-    preview: false
-      });
-    }else{
-      store = createStore(widgetListReducer, {
-        widgets: [],
-        widget_type_create: "LIST",
-    preview: false
-      });
+      store = createStore(widgetListReducer)
     }
 
     return (

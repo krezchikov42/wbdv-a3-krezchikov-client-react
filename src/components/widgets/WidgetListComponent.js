@@ -7,6 +7,13 @@ import ImageWidget from "./ImageWidget";
 import LinkWidget from "./LinkWidget"
 
 export default class WidgetListComponent extends React.Component {
+
+  constructor(props) {
+    super(props)
+    console.log('componenet')
+    this.props.findAllWidgets()
+  }
+
   render() {
     const widget_props = {
       updateWidget: this.props.updateWidget,
