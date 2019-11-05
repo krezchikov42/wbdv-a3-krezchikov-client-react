@@ -53,7 +53,7 @@ export default class WidgetService {
 
   //retrieves one widget object whose ID is widgetId
   findWidget(widgetId) {
-    return fetch(`http://localhost:8080/api/widgets${widgetId}`,{
+    return fetch(`http://localhost:8080/api/widgets/${widgetId}`,{
       headers:{
       'content-type':'application/json',
       'Accept': 'application/json',
@@ -62,17 +62,18 @@ export default class WidgetService {
       }}).then(response => response.json())
   }
 
-  // //updates one widget object whose ID is widgetId
-  // updateWidget(widgetId, widget) {
-  //   for (topic_one of this.course.topics) {
-  //     for (const [widget_index, widget_one] of topic_one.widgets.entries()) {
-  //       if (widgetId == widget_one.id) {
-  //         widget_many = topic_one.widgets;
-  //         widget_many[widget_index] = widget;
-  //       }
-  //     }
-  //   }
-  // }
+  //updates one widget object whose ID is widgetId
+  updateWidget(widgetId, widget) {
+    return fetch(`http://localhost:8080/api/widgets/${widgetId}`,{
+      method: "PUT",
+      body: JSON.stringify(widget),
+      headers:{
+      'content-type':'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Credentials':true,
+      'Access-Control-Allow-Origin':true
+      }}).then(response => response.json())
+  }
 
   // //removes widget whose ID is widgetId
   // deleteWidget(widgetId) {

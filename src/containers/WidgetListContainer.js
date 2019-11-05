@@ -20,8 +20,9 @@ const dispatcherToPropertyMapper = dispatch => {
         size: 1,
         text: "Default Text"
       };
-      widget_service.createWidget(0,widget)
-      .then(widgets =>  dispatch({ type: "CREATE_WIDGET", widgets: widgets}));
+      widget_service
+        .createWidget(0, widget)
+        .then(widgets => dispatch({ type: "CREATE_WIDGET", widgets: widgets }));
     },
     deleteWidget: id => {
       dispatch({ type: "DELETE_WIDGET", widgetId: id });
@@ -30,7 +31,9 @@ const dispatcherToPropertyMapper = dispatch => {
       dispatch({ type: "CHANGE_TO_CREATE", widget_type: event.target.value });
     },
     updateWidget: (widget_id, widget) => {
-      dispatch({ type: "UPDATE_WIDGET", widget: widget, widget_id: widget_id });
+      widget_service
+        .updateWidget(widget_id, widget)
+        .then(widgets => dispatch({ type: "UPDATE_WIDGET", widgets: widgets }));
     },
     changePreview: event => {
       dispatch({ type: "CHANGE_TO_PREVIEW", preview: event.target.checked });
