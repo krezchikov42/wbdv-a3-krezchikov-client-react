@@ -14,8 +14,9 @@ export default class CourseManger extends React.Component {
 
   componentDidMount() {
     let course_service = CourseService.getInstance();
-    let course_many = course_service.findAllCourses();
-    this.setState({ course_many: course_many });
+    course_service
+      .findAllCourses()
+      .then(course_many => this.setState({ course_many: course_many }));
   }
 
   render() {
@@ -23,8 +24,7 @@ export default class CourseManger extends React.Component {
       <div className="container">
         <div className="row bg-dark">
           <div className="col">
-            <CourseManagerHeader 
-                  renderCourses={this.renderCourses}/>
+            <CourseManagerHeader renderCourses={this.renderCourses} />
           </div>
         </div>
         <div className="row">
@@ -43,9 +43,7 @@ export default class CourseManger extends React.Component {
     );
   }
 
-  renderCourses = () => {
-    let course_service = CourseService.getInstance();
-    let course_many = course_service.findAllCourses();
+  renderCourses = (course_many) => {
     this.setState({ course_many: course_many });
   };
 
