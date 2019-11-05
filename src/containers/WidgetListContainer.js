@@ -25,7 +25,8 @@ const dispatcherToPropertyMapper = dispatch => {
         .then(widgets => dispatch({ type: "CREATE_WIDGET", widgets: widgets }));
     },
     deleteWidget: id => {
-      dispatch({ type: "DELETE_WIDGET", widgetId: id });
+        widget_service.deleteWidget(id)
+        .then(widgets =>  dispatch({ type: "DELETE_WIDGET", widgets: widgets }))
     },
     changeWidgetTypeToCreate: event => {
       dispatch({ type: "CHANGE_TO_CREATE", widget_type: event.target.value });

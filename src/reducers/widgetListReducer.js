@@ -20,6 +20,7 @@ const initialState = {
 
 const widgetListReducer = (state=initialState, action) => {
   switch (action.type) {
+    case "DELETE_WIDGET":
     case "UPDATE_WIDGET":
     case "CREATE_WIDGET":
     case "FIND_ALL_WIDGETS":
@@ -28,11 +29,7 @@ const widgetListReducer = (state=initialState, action) => {
         ...state,
         widgets: action.widgets,
       }
-    case "DELETE_WIDGET":
-      return {
-        ...state,
-        widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
-      };
+     
     case "CHANGE_TO_CREATE":
       return {
         ...state,
@@ -43,16 +40,6 @@ const widgetListReducer = (state=initialState, action) => {
         ...state,
         preview: action.preview
       };
-      // let widget_new = action.widget;
-      // let found_module_index = state.widgets.findIndex(
-      //   widget_one => widget_one.id === action.widget_id
-      // );
-      // let widget_many_new = replaceAt(
-      //   state.widgets,
-      //   found_module_index,
-      //   widget_new
-      // );
-      // return { ...state, widgets: widget_many_new };
     case "MOVE_WIDGET":
       let widget_many = cloneDeep(state.widgets);
       let old_index = action.old_index;

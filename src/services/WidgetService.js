@@ -75,12 +75,15 @@ export default class WidgetService {
       }}).then(response => response.json())
   }
 
-  // //removes widget whose ID is widgetId
-  // deleteWidget(widgetId) {
-  //   for (topic_one of this.course.topics) {
-  //     topic_one.widgets = topic_one.widgets.filter(
-  //       widget => widget.id !== widgetId
-  //     );
-  //   }
-  // }
+  //removes widget whose ID is widgetId
+  deleteWidget(widgetId) {
+    return fetch(`http://localhost:8080/api/widgets/${widgetId}`,{
+      method: "DELETE",
+      headers:{
+      'content-type':'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Credentials':true,
+      'Access-Control-Allow-Origin':true
+      }}).then(response => response.json())
+    }
 }
