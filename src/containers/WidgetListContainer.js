@@ -14,8 +14,14 @@ const stateToPropertyMapper = state => {
 
 const dispatcherToPropertyMapper = dispatch => {
   return {
-    addWidget: () => {
-      dispatch({ type: "CREATE_WIDGET" });
+    addWidget: type => {
+      let widget = {
+        type: type,
+        size: 1,
+        text: "Default Text"
+      };
+      widget_service.createWidget(0,widget)
+      .then(widgets =>  dispatch({ type: "CREATE_WIDGET", widgets: widgets}));
     },
     deleteWidget: id => {
       dispatch({ type: "DELETE_WIDGET", widgetId: id });

@@ -39,7 +39,7 @@ export default class WidgetListComponent extends React.Component {
             <option value="LINK">Link Widget</option>
           </select>
         </div>
-        <button onClick={this.props.addWidget}>Add Widget</button>
+        <button onClick={() => this.props.addWidget(this.props.widget_type_create)}>Add Widget</button>
         <div className="custom-control custom-switch">
           <input
             type="checkbox"

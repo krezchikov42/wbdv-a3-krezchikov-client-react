@@ -29,7 +29,11 @@ export default class WidgetService {
 
   //creates a new widget instance for the topic whose ID is topicId
   createWidget(topicId, widget) {
-    fetch("http://localhost:8080/api/widgets",{
+    widget.id = WidgetService.id
+    WidgetService.id += 1
+    return fetch("http://localhost:8080/api/widgets",{
+      method: "POST",
+      body: JSON.stringify(widget),
       headers:{
       'content-type':'application/json',
       'Accept': 'application/json',

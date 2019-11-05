@@ -20,6 +20,7 @@ const initialState = {
 
 const widgetListReducer = (state=initialState, action) => {
   switch (action.type) {
+    case "CREATE_WIDGET":
     case "FIND_ALL_WIDGETS":
       console.log('reducer', action)
       return {
@@ -30,19 +31,6 @@ const widgetListReducer = (state=initialState, action) => {
       return {
         ...state,
         widgets: state.widgets.filter(widget => widget.id !== action.widgetId)
-      };
-    case "CREATE_WIDGET":
-      return {
-        ...state,
-        widgets: [
-          ...state.widgets,
-          {
-            type: state.widget_type_create,
-            size: 1,
-            text: "Default Text",
-            id: new Date().getTime()
-          }
-        ]
       };
     case "CHANGE_TO_CREATE":
       return {
