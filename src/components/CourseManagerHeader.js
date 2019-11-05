@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 import CourseService from "../services/CourseService";
 
 export default class CourseHeader extends React.Component {
-
-    constructor(props){
-        super(props)
-        this.state = {
-            'title_text': ''
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      title_text: ""
+    };
+  }
 
   render() {
     return (
@@ -27,8 +26,9 @@ export default class CourseHeader extends React.Component {
         <form className="form-inline">
           <input
             className="form-control pr-5 mx-2  wbdv-field wbdv-new-course"
-            value={this.state.title_text} onChange={this.handle_title_change}
-            placeholder='New Course Name'
+            value={this.state.title_text}
+            onChange={this.handle_title_change}
+            placeholder="New Course Name"
           />
         </form>
         <button
@@ -45,20 +45,19 @@ export default class CourseHeader extends React.Component {
     );
   }
 
-  handle_title_change =  (event) => {
-    this.setState({title_text: event.target.value});
-  }
+  handle_title_change = event => {
+    this.setState({ title_text: event.target.value });
+  };
 
-  add_course =  (e) => {
-      console.log(this)
+  add_course = e => {
     let course_service = CourseService.getInstance();
     let course = {
-        "title": this.state.title_text,
-        "modules": []
-    }
-    course_service.createCourse(course)
-    this.setState({'title_text': ''})
-    this.props.renderCourses()
-  }
+      title: this.state.title_text,
+      moduleMany: []
+    };
+    course_service
+      .createCourse(course)
+      .then(course_many => this.props.renderCourses(course_many));
+    this.setState({ title_text: "" });
+  };
 }
-

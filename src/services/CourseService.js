@@ -16,9 +16,17 @@ export default class CourseService {
 
   //creates a new course instance and adds it to the collection of courses
   createCourse(course) {
-    course["id"] = CourseService.id;
+    course.id = CourseService.id;
     CourseService.id += 1;
-    this.courses.push(course);
+    return fetch("http://localhost:8080/api/courses",{
+      method: "POST",
+      body: JSON.stringify(course),
+      headers:{
+      'content-type':'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Credentials':true,
+      'Access-Control-Allow-Origin':true
+      }}).then(response => response.json())
   }
 
   //retrieves all course instances as an array of courses
