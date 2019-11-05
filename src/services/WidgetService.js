@@ -51,16 +51,16 @@ export default class WidgetService {
   //   }
   // }
 
-  // //retrieves one widget object whose ID is widgetId
-  // findWidget(widgetId) {
-  //   for (topic_one of this.course.topics) {
-  //     for (widget_one of topic_one.widgets) {
-  //       if (widgetId == widget_one.id) {
-  //         return widget_one;
-  //       }
-  //     }
-  //   }
-  // }
+  //retrieves one widget object whose ID is widgetId
+  findWidget(widgetId) {
+    return fetch(`http://localhost:8080/api/widgets${widgetId}`,{
+      headers:{
+      'content-type':'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Credentials':true,
+      'Access-Control-Allow-Origin':true
+      }}).then(response => response.json())
+  }
 
   // //updates one widget object whose ID is widgetId
   // updateWidget(widgetId, widget) {
