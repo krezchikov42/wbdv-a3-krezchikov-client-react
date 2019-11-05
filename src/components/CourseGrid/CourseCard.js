@@ -1,6 +1,6 @@
 import React from "react";
 import CourseService from "../../services/CourseService";
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 export default class CourseCard extends React.Component {
   render() {
@@ -36,7 +36,12 @@ export default class CourseCard extends React.Component {
   removeClass = e => {
     let course_service = CourseService.getInstance();
     let course = this.props.course;
-    course_service.deleteCourse(course.id);
-    this.props.renderCourses();
+    course_service
+      .deleteCourse(course.id)
+      .then(
+        course_service
+          .findAllCourses()
+          .then(courses => this.props.renderCourses(courses))
+      );
   };
 }

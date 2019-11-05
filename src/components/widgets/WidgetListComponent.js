@@ -10,7 +10,6 @@ export default class WidgetListComponent extends React.Component {
 
   constructor(props) {
     super(props)
-    console.log('componenet')
     this.props.findAllWidgets()
   }
 

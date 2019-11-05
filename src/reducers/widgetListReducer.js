@@ -24,7 +24,6 @@ const widgetListReducer = (state=initialState, action) => {
     case "UPDATE_WIDGET":
     case "CREATE_WIDGET":
     case "FIND_ALL_WIDGETS":
-      console.log('reducer', action)
       return {
         ...state,
         widgets: action.widgets,
