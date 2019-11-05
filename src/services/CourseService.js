@@ -54,8 +54,15 @@ export default class CourseService {
 
   // updates the course instance whose id matches the id parameter.Updates the instance with values in course parameter
   updateCourse(id, course) {
-    let found_course_index = this.courses.indIndex(course => id == course.id);
-    this.courses[found_course_index] = course;
+    return fetch(`http://localhost:8080/api/courses/${id}`,{
+      method: "PUT",
+      body: JSON.stringify(course),
+      headers:{
+      'content-type':'application/json',
+      'Accept': 'application/json',
+      'Access-Control-Allow-Credentials':true,
+      'Access-Control-Allow-Origin':true
+      }}).then(response => response.json())
   }
 
   // deletes course instance whose id matches the id parameter
