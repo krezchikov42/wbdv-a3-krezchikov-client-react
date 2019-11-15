@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 export default class CourseRow extends React.Component {
   render() {
     let course = this.props.course;
-    console.log("CourseRow", course);
     return (
       <tr>
         <td>

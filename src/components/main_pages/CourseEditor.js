@@ -13,7 +13,7 @@ class CourseEditor extends React.Component {
     super(props);
     let init_course = {
       title: '',
-      moduleMany: []
+      moduleMany: [],
     }
     this.state = {
       course: init_course,
@@ -27,7 +27,8 @@ class CourseEditor extends React.Component {
     let course_id = this.props.match.params.course_id;
     let course_service = CourseService.getInstance();
     let course = course_service.findCourseById(course_id).then(
-      course => this.setState({course: course})
+      course => {console.log(course)
+        this.setState({course: course})}
     );
   }
 
@@ -37,16 +38,27 @@ class CourseEditor extends React.Component {
     let have_module = this.state.course && this.state.course.moduleMany.length !== 0;
     let have_lesson =
       have_module &&
-      this.state.course.moduleMany[this.state.selected_module_index].lessons
+      this.state.course.moduleMany[this.state.selected_module_index].lessonMany
         .length !== 0;
     let have_topic =
       have_lesson &&
-      this.state.course.moduleMany[this.state.selected_module_index].lessons[
+      this.state.course.moduleMany[this.state.selected_module_index].lessonMany[
         this.state.selected_lesson_index
       ].topics.length !== 0;
 
     if (have_topic){
-      store = createStore(widgetListReducer)
+      let topic =  this.state.course.moduleMany[this.state.selected_module_index].lessonMany[
+        this.state.selected_lesson_index
+      ].topics[this.state.selected_topic_index]
+
+      let initial_state = {
+        widgets: [
+        ],
+        widget_type_create: "LIST",
+        preview: false,
+        topicId: topic.id,
+      }
+      store = createStore(widgetListReducer,initial_state)
     }
 
     return (
@@ -65,7 +77,7 @@ class CourseEditor extends React.Component {
               <LessonTabsContainer
                 lesson_many={
                   this.state.course.moduleMany[this.state.selected_module_index]
-                    .lessons
+                    .lessonMany
                 }
                 selectLessonIndex={this.selectLessonIndex}
                 selected_lesson_index={this.state.selected_lesson_index}
@@ -75,8 +87,9 @@ class CourseEditor extends React.Component {
               <TopicListContainer
                 topic_many={
                   this.state.course.moduleMany[this.state.selected_module_index]
-                    .lessons[this.state.selected_lesson_index].topics
+                    .lessonMany[this.state.selected_lesson_index].topics
                 }
+                selectTopicIndex={this.selectTopicIndex}
                 selected_topic_index={this.selected_topic_index}
               />
             )}
@@ -106,6 +119,7 @@ class CourseEditor extends React.Component {
   selectTopicIndex = index => {
     this.setState({ selected_topic_index: index });
   };
+
 }
 
 export default CourseEditor;
