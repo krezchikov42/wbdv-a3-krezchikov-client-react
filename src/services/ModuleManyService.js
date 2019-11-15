@@ -1,32 +1,68 @@
 export default class ModuleManyService {
-    constructor(module_many){
-        this.id = 0
-        this.module_many = module_many
-    }
+  constructor(module_many) {
+    this.id = 0;
+    this.module_many = module_many;
+  }
 
-    createModule(module_title){
-        if (module_title == ''){
-            module_title = 'Default Module'
+  createModule(courseId, module) {
+    return fetch(`http://localhost:8080/api/courses/${courseId}/modules`, {
+      method: "POST",
+      body: JSON.stringify(module),
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": true
+      }
+    }).then(response => response.json());
+  }
+
+  findModules(courseId) {
+    return fetch(`http://localhost:8080/api/courses/${courseId}/modules`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": true
+      }
+    }).then(response => response.json());
+  }
+
+  deleteModule(moduleId) {
+    return fetch(`http://localhost:8080/api/modules/${moduleId}`, {
+      method: "DELETE",
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": true
+      }
+    }).then(response => response.json());
+  }
+
+  updateModule(moduleId, module) {
+    return fetch(`http://localhost:8080/api/modules/${moduleId}`, {
+      method: "PUT",
+      body: JSON.stringify(module),
+      headers: {
+        "content-type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Credentials": true,
+        "Access-Control-Allow-Origin": true
+      }
+    }).then(response => response.json());
+  }
+
+  findOneModule(moduleId) {
+    return fetch(`http://localhost:8080/api/modules/${moduleId}`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Credentials": true,
+          "Access-Control-Allow-Origin": true
         }
-        let module = {
-            title: module_title,
-            lessons: [],
-            id: this.id
-        }
-        this.module_many.push(module)
-        this.id += 1
-    }
-
-    deleteModule(module_id) {
-        this.module_many =  this.module_many.filter(module => module.id !== module_id);
-    }
-
-    updateModule(module_id, new_module_title) {
-        let found_module_index = this.module_many.findIndex(module => module.id === module_id);
-        this.module_many[found_module_index].title = new_module_title;
-    }
-
-    getModules() {
-        return this.module_many
+      }).then(response => response.json());
     }
 }
