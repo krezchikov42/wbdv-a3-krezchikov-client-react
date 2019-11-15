@@ -9,31 +9,31 @@ export default class ModuleListContainer extends React.Component {
     this.module_service = new ModuleManyService(this.state.module_many);
   }
 
-  titleChanged = event => {
+  titleChanged = event => { 
     this.setState({
       title: event.currentTarget.value
     });
   };
 
   createModule = () => {
-    let module_title = this.state.title;
-    this.module_service.createModule(module_title);
-    this.refreshModules();
+    // let module_title = this.state.title;
+    // this.module_service.createModule(module_title);
+    // this.refreshModules();
   };
 
   updateModule = mod_id => {
-    this.module_service.updateModule(mod_id, this.state.title);
-    this.refreshModules();
+    // this.module_service.updateModule(mod_id, this.state.title);
+    // this.refreshModules();
   };
 
   deleteModule = mod_id => {
-    this.module_service.deleteModule(mod_id);
+    // this.module_service.deleteModule(mod_id);
     this.refreshModules();
   };
 
   refreshModules = () => {
-    let new_modules = this.module_service.getModules();
-    this.setState({ module_many: new_modules, title: "" });
+    // let new_modules = this.module_service.getModules();
+    // this.setState({ module_many: new_modules, title: "" });
   };
 
   render() {
