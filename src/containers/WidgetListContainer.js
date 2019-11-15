@@ -8,25 +8,27 @@ const stateToPropertyMapper = state => {
   return {
     widgets: state.widgets,
     widget_type_create: state.widget_type_create,
-    preview: state.preview
+    preview: state.preview,
+    topicId: state.topicId
   };
 };
 
 const dispatcherToPropertyMapper = dispatch => {
   return {
-    addWidget: type => {
+    createWidget: (topicId, type) => {
       let widget = {
         type: type,
         size: 1,
         text: "Default Text"
       };
       widget_service
-        .createWidget(0, widget)
+        .createWidget(topicId, widget)
         .then(widgets => dispatch({ type: "CREATE_WIDGET", widgets: widgets }));
     },
     deleteWidget: id => {
-        widget_service.deleteWidget(id)
-        .then(widgets =>  dispatch({ type: "DELETE_WIDGET", widgets: widgets }))
+      widget_service
+        .deleteWidget(id)
+        .then(widgets => dispatch({ type: "DELETE_WIDGET", widgets: widgets }));
     },
     changeWidgetTypeToCreate: event => {
       dispatch({ type: "CHANGE_TO_CREATE", widget_type: event.target.value });
@@ -49,6 +51,12 @@ const dispatcherToPropertyMapper = dispatch => {
     findAllWidgets: () =>
       widget_service
         .findAllWidgets()
+        .then(widgets =>
+          dispatch({ type: "FIND_ALL_WIDGETS", widgets: widgets })
+        ),
+    findWidgets: topicId =>
+      widget_service
+        .findWidgets(topicId)
         .then(widgets =>
           dispatch({ type: "FIND_ALL_WIDGETS", widgets: widgets })
         )

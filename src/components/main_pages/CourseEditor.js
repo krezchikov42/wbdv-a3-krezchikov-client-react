@@ -27,7 +27,7 @@ class CourseEditor extends React.Component {
     let course_id = this.props.match.params.course_id;
     let course_service = CourseService.getInstance();
     let course = course_service.findCourseById(course_id).then(
-      course => {console.log(course)
+      course => {
         this.setState({course: course})}
     );
   }

@@ -10,7 +10,16 @@ export default class WidgetListComponent extends React.Component {
 
   constructor(props) {
     super(props)
-    this.props.findAllWidgets()
+  }
+
+  componentDidMount() {
+    this.props.findWidgets(this.props.topicId)
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if (prevProps.topicId != this.props.topicId){
+      this.props.findWidgets(this.props.topicId)
+    }
   }
 
   render() {
@@ -38,7 +47,7 @@ export default class WidgetListComponent extends React.Component {
             <option value="LINK">Link Widget</option>
           </select>
         </div>
-        <button onClick={() => this.props.addWidget(this.props.widget_type_create)}>Add Widget</button>
+        <button onClick={() => this.props.createWidget(this.props.topicId,this.props.widget_type_create)}>Add Widget</button>
         <div className="custom-control custom-switch">
           <input
             type="checkbox"
@@ -89,7 +98,7 @@ export default class WidgetListComponent extends React.Component {
 WidgetListComponent.propTypes = {
   widgets: PropTypes.array.isRequired,
   widget_type_create: PropTypes.string.isRequired,
-  addWidget: PropTypes.func.isRequired,
+  createWidget: PropTypes.func.isRequired,
   deleteWidget: PropTypes.func.isRequired,
   changeWidgetTypeToCreate: PropTypes.func.isRequired,
   updateWidget: PropTypes.func.isRequired,
