@@ -3,16 +3,6 @@ import cloneDeep from "lodash/cloneDeep";
 
 const initialState = {
   widgets: [
-    // { type: "LIST", ordered: true, text: "Item 1\nItem 2\nItem 3", id: 123 },
-    // { type: "HEADING", size: 6, text: "Hello from Redux", id: 234 },
-    // { type: "PARAGRAPH", text: "Hello from Redux paragraph", id: 345 },
-    // { type: "IMAGE", text: "https://picsum.photos/100/100" , id: 1287389271093},
-    // {
-    //   type: "LINK",
-    //   text: "hello",
-    //   url: "https://getbootstrap.com/docs/4.0/components/forms/",
-    //   id: 219038092189038
-    // }
   ],
   widget_type_create: "LIST",
   preview: false
