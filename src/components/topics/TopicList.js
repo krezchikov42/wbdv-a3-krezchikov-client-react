@@ -7,12 +7,13 @@ export default class TopicList extends React.Component {
         <div>
             <ul className="nav nav-pills" role="tablist">
                 {
-                    this.props.topic_many.map(topic =>
+                    this.props.topic_many.map((topic,index) =>
                         <TopicItem
                             key={topic.id}
                             topic={topic}
                             updateTopic={this.props.updateTopic}
-                            deleteTopic={this.props.deleteTopic}/>
+                            deleteTopic={this.props.deleteTopic}
+                            selectTopicIndex={()=> this.props.selectTopicIndex(index)}/>
                     )
                 }
             </ul>

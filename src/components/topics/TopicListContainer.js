@@ -58,6 +58,7 @@ export default class TopicListContainer extends React.Component {
               topic_many={this.state.topic_many}
               updateTopic={this.updateTopic}
               deleteTopic={this.deleteTopic}
+              selectTopicIndex={this.props.selectTopicIndex}
             />
         </ul>
       </div>
