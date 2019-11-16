@@ -5,7 +5,7 @@ export default class ModuleManyService {
   }
 
   createModule(courseId, module) {
-    return fetch(`http://localhost:8080/api/courses/${courseId}/modules`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/courses/${courseId}/modules`, {
       method: "POST",
       body: JSON.stringify(module),
       headers: {
@@ -18,7 +18,7 @@ export default class ModuleManyService {
   }
 
   findModules(courseId) {
-    return fetch(`http://localhost:8080/api/courses/${courseId}/modules`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/courses/${courseId}/modules`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -30,7 +30,7 @@ export default class ModuleManyService {
   }
 
   deleteModule(moduleId) {
-    return fetch(`http://localhost:8080/api/modules/${moduleId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/modules/${moduleId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
@@ -42,7 +42,7 @@ export default class ModuleManyService {
   }
 
   updateModule(moduleId, module) {
-    return fetch(`http://localhost:8080/api/modules/${moduleId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/modules/${moduleId}`, {
       method: "PUT",
       body: JSON.stringify(module),
       headers: {
@@ -55,7 +55,7 @@ export default class ModuleManyService {
   }
 
   findOneModule(moduleId) {
-    return fetch(`http://localhost:8080/api/modules/${moduleId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/modules/${moduleId}`, {
         method: "GET",
         headers: {
           "content-type": "application/json",

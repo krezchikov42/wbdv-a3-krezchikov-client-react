@@ -1,7 +1,7 @@
 export default class WidgetService {
   static myInstance = null;
   static id = 0;
-  static url_base = "http://localhost:8080/api/widgets";
+  static url_base = "https://enigmatic-river-50118.herokuapp.com/api/widgets";
 
   static getInstance() {
     if (WidgetService.myInstance == null) {
@@ -20,7 +20,7 @@ export default class WidgetService {
   }
 
   findAllWidgets = () =>
-    fetch("http://localhost:8080/api/widgets", {
+    fetch("https://enigmatic-river-50118.herokuapp.com/api/widgets", {
       headers: {
         "content-type": "application/json",
         Accept: "application/json",
@@ -31,7 +31,7 @@ export default class WidgetService {
 
   //creates a new widget instance for the topic whose ID is topicId
   createWidget(topicId, widget) {
-    return fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/topics/${topicId}/widgets`, {
       method: "POST",
       body: JSON.stringify(widget),
       headers: {
@@ -45,7 +45,7 @@ export default class WidgetService {
 
   //retrieves all widgets for topic whose ID is topicId
   findWidgets(topicId) {
-    return fetch(`http://localhost:8080/api/topics/${topicId}/widgets`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/topics/${topicId}/widgets`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -58,7 +58,7 @@ export default class WidgetService {
 
   //retrieves one widget object whose ID is widgetId
   findWidget(widgetId) {
-    return fetch(`http://localhost:8080/api/widgets/${widgetId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/widgets/${widgetId}`, {
       headers: {
         "content-type": "application/json",
         Accept: "application/json",
@@ -70,7 +70,7 @@ export default class WidgetService {
 
   //updates one widget object whose ID is widgetId
   updateWidget(widgetId, widget) {
-    return fetch(`http://localhost:8080/api/widgets/${widgetId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/widgets/${widgetId}`, {
       method: "PUT",
       body: JSON.stringify(widget),
       headers: {
@@ -84,7 +84,7 @@ export default class WidgetService {
 
   //removes widget whose ID is widgetId
   deleteWidget(widgetId) {
-    return fetch(`http://localhost:8080/api/widgets/${widgetId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/widgets/${widgetId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",

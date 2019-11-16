@@ -18,7 +18,7 @@ export default class CourseService {
   createCourse(course) {
     course.id = CourseService.id;
     CourseService.id += 1;
-    return fetch("http://localhost:8080/api/courses", {
+    return fetch("https://enigmatic-river-50118.herokuapp.com/api/courses", {
       method: "POST",
       body: JSON.stringify(course),
       headers: {
@@ -32,7 +32,7 @@ export default class CourseService {
 
   //retrieves all course instances as an array of courses
   findAllCourses() {
-    return fetch("http://localhost:8080/api/courses", {
+    return fetch("https://enigmatic-river-50118.herokuapp.com/api/courses", {
       headers: {
         "content-type": "application/json",
         Accept: "application/json",
@@ -44,7 +44,7 @@ export default class CourseService {
 
   //retrieves a course instance that matches the id parameter
   findCourseById(id) {
-    return fetch(`http://localhost:8080/api/courses/${id}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/courses/${id}`, {
       headers: {
         "content-type": "application/json",
         Accept: "application/json",
@@ -56,7 +56,7 @@ export default class CourseService {
 
   // updates the course instance whose id matches the id parameter.Updates the instance with values in course parameter
   updateCourse(id, course) {
-    return fetch(`http://localhost:8080/api/courses/${id}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/courses/${id}`, {
       method: "PUT",
       body: JSON.stringify(course),
       headers: {
@@ -70,7 +70,7 @@ export default class CourseService {
 
   // deletes course instance whose id matches the id parameter
   deleteCourse(courseId) {
-    return fetch(`http://localhost:8080/api/courses/${courseId}`, {
+    return fetch(`https://enigmatic-river-50118.herokuapp.com/api/courses/${courseId}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
